@@ -1,0 +1,101 @@
+
+
+body {
+
+
+}
+
+
+div{
+    background-color: #DADDD8;
+
+}
+
+
+h1 {
+    color: #FAFAFF;
+
+}
+
+.nav-nav {
+
+}
+
+
+
+.jumbotron {
+    background-color: black;
+    background-image: url("./images/header.jpg");
+    margin-bottom: 100px;
+}
+.head-1 {
+    margin-bottom:-35px;
+}
+
+p {
+    color: #FAFAFF;
+}
+
+ul li {
+    display: inline-block;
+    padding: 0 20px;
+
+
+}
+
+ul li ~ li {
+    border-left: 1px solid #333;
+
+}
+
+
+.card-body {
+
+}
+
+.card-deck {
+
+
+}
+
+
+.card {
+
+    float: right;
+    padding: 0 2px;
+
+
+}
+
+#card {
+    border: 2px solid black;
+
+
+}
+
+#card2 {
+
+    border: 2px solid black;
+
+}
+
+#card3 {
+    border: 2px solid black;
+
+
+}
+
+
+
+
+
+.nav-link1 {
+    display: inline;
+    font-size: small;
+    padding-right: 40px;
+
+}
+
+
+
+
