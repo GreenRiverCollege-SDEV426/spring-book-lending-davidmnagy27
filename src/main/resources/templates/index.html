@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="th" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href=" /css/styles.css">
+    <link href=" /css/styles.css" rel="stylesheet">
 
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
@@ -42,7 +42,7 @@
 
             <li class="nav-item">
 
-                    <a th:text="#{home.nav.profile}"class="nav-link" href="#">Profile</a>
+                    <a th:text="#{home.nav.profile}" class="nav-link" href="#">Profile</a>
             </li>
             <li class="nav-item">
                 <a th:text="#{home.nav.viewlenders}" class="nav-link" href="#">View Lenders</a>
@@ -102,7 +102,7 @@
     </div>
     <div class="card">
         <div id="card3">
-        <img class="card-img-top" src="/css/images/lending.png" alt="Card image cap" style="width:450px;height:325px;">
+        <img alt="Card image cap" class="card-img-top" src="/css/images/lending.png" style="width:450px;height:325px;">
         <div class="card-body">
             <h5 th:text="#{home.header.borrowedbooks}" class="card-title">Borrowed Books</h5>
             <p th:text="#{home.header.borrowedbooks.subtext}">Connect with 100's of other users from your area.Users
