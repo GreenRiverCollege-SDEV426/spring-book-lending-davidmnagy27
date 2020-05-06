@@ -24,17 +24,17 @@
     <h1 th:text="#{home.logo}">Booking Lending Application</h1>
 
 
-    <p th:text="#{home.logo.subtext}">A next generation book lending application that connects borrowers with the stores
-        they love.'"</p>
+    <h5 th:text="#{home.logo.subtext}">A next generation book lending application that connects borrowers with the stores
+        they love.'"</h5>
 </div>
 </div>
 
 
 
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <nav class="navbar-nav">
 
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar">
 
             <li class="nav-item active">
                 <a th:text="#{home.nav.home}" class="nav-link" href="#">Home</a>
@@ -67,13 +67,15 @@
     </nav>
 
 
+
+
 <div class="card-deck">
     <div class="card">
         <div id="card">
         <img class="card-img-top" src="/css/images/borrow.jpg" alt="Card image cap" style="width:450px;height:325px;">
 
         <div class="card-body">
-            <h5 th:text="#{home.header.lenders}" class="card-title">Lenders</h5>
+            <h4 th:text="#{home.header.lenders}" class="card-title">Lenders</h4>
             <p th:text="#{home.header.lenders.subtext}">Book lending is alive and well! Why buy a new book
                 when you can crowd-source a collection of stories that will keep you
                 busy reading for years to come.</p>
@@ -89,7 +91,7 @@
 
         <img class="card-img-top" src="/css/images/book.jpg" alt="Card image cap" style="width:450px;height:325px;">
         <div class="card-body">
-            <h5 th:text="#{home.header.books}" class="card-title">Books</h5>
+            <h4 th:text="#{home.header.books}" class="card-title">Books</h4>
             <p th:text="#{home.header.books.subtext}">Browse a selection of over 1000 book titles.
                 You'll find a title in any genre you like, including mysteries, science
                 fiction and romance. A book for every day</p>
@@ -104,7 +106,7 @@
         <div id="card3">
         <img alt="Card image cap" class="card-img-top" src="/css/images/lending.png" style="width:450px;height:325px;">
         <div class="card-body">
-            <h5 th:text="#{home.header.borrowedbooks}" class="card-title">Borrowed Books</h5>
+            <h4 th:text="#{home.header.borrowedbooks}" class="card-title">Borrowed Books</h4>
             <p th:text="#{home.header.borrowedbooks.subtext}">Connect with 100's of other users from your area.Users
                 are expected to take care of any borrowed materials and to return them in a
                 timely manner.</p>

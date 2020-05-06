@@ -14,7 +14,25 @@ div{
 
 h1 {
     color: #FAFAFF;
+    font-family: 'DejaVu Serif', Georgia, "Times New Roman", Times, serif;
 
+}
+h4 {
+    color: #1C1C1C;
+    font-family: 'DejaVu Serif', Georgia, "Times New Roman", Times, serif;
+}
+
+h5 {
+    color: #FAFAFF;
+    font-family: 'DejaVu Serif', Georgia, "Times New Roman", Times, serif;
+}
+
+.navbar li a {
+    color: #ECEBE4;
+}
+
+.navbar-nav {
+    background-color: #1C1C1C;
 }
 
 
@@ -31,7 +49,8 @@ h1 {
 }
 
 p {
-    color: #FAFAFF;
+    color: #1C1C1C;
+    font-family: 'DejaVu Serif', Georgia, "Times New Roman", Times, serif;
 }
 
 ul li {
