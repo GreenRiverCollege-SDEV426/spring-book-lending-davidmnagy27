@@ -35,13 +35,9 @@ h5 {
     background-color: #1C1C1C;
 }
 
-
-
-
-
 .jumbotron {
-    background-color: black;
-    background-image: url("./images/header.jpg");
+
+    background-image: url("../images/header.jpg");
     margin-bottom: 100px;
 }
 .head-1 {
@@ -50,7 +46,7 @@ h5 {
 
 p {
     color: #1C1C1C;
-    font-family: 'DejaVu Serif', Georgia, "Times New Roman", Times, serif;
+    font-family: 'DejaVu Serif', Georgia, "Times New Roman", Times, serifm;
 }
 
 ul li {
@@ -86,6 +82,7 @@ ul li ~ li {
 
 #card {
     border: 2px solid black;
+
 
 
 }

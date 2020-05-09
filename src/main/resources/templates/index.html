@@ -1,31 +1,38 @@
+<!-- David Nagy
+5/7/20
+index.html
+Main page of springbook lending
+-->
+
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link href=" /css/styles.css" rel="stylesheet">
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
 
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
+
 
     <title th:text="#{home.logo}">Booking Lending Application</title>
 
 </head>
 <body>
 
-
-
 <div class="head-1">
 <div class="jumbotron">
     <h1 th:text="#{home.logo}">Booking Lending Application</h1>
 
 
-    <h5 th:text="#{home.logo.subtext}">A next generation book lending application that connects borrowers with the stores
-        they love.'"</h5>
+    <h5 th:text="#{home.logo.subtext}">A next generation book lending application that connects borrowers with the
+        stores they love.'"</h5>
 </div>
 </div>
 
@@ -72,7 +79,8 @@
 <div class="card-deck">
     <div class="card">
         <div id="card">
-        <img class="card-img-top" src="/css/images/borrow.jpg" alt="Card image cap" style="width:450px;height:325px;">
+        <img class="card-img-top" th:src="@{/images/borrow.jpg}" alt="Card image cap"
+             style="width:435px;height:325px;" src="">
 
         <div class="card-body">
             <h4 th:text="#{home.header.lenders}" class="card-title">Lenders</h4>
@@ -89,7 +97,8 @@
     <div class="card">
         <div id="card2">
 
-        <img class="card-img-top" src="/css/images/book.jpg" alt="Card image cap" style="width:450px;height:325px;">
+        <img class="card-img-top" th:src="@{images/book.jpg}" alt="Card image cap"
+             style="width:435px;height:325px;" src="">
         <div class="card-body">
             <h4 th:text="#{home.header.books}" class="card-title">Books</h4>
             <p th:text="#{home.header.books.subtext}">Browse a selection of over 1000 book titles.
@@ -104,7 +113,8 @@
     </div>
     <div class="card">
         <div id="card3">
-        <img alt="Card image cap" class="card-img-top" src="/css/images/lending.png" style="width:450px;height:325px;">
+        <img alt="Card image cap" class="card-img-top" th:src="@{images/lending.png}"
+             style="width:450px;height:325px;" src="">
         <div class="card-body">
             <h4 th:text="#{home.header.borrowedbooks}" class="card-title">Borrowed Books</h4>
             <p th:text="#{home.header.borrowedbooks.subtext}">Connect with 100's of other users from your area.Users
@@ -124,4 +134,10 @@
 
 
 </body>
+
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 </html>
