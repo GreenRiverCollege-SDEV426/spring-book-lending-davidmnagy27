@@ -14,7 +14,7 @@ public class LenderService
      this.lenderRepository = lenderRepository;
  }
 
- public Iterable<Lender> getLender()
+ public Iterable<Lender> getLenders()
  {
      return lenderRepository.findAll();
  }

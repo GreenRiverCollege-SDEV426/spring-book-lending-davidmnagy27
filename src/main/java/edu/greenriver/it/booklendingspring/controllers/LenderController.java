@@ -13,7 +13,7 @@ public class LenderController
 
     public LenderController(LenderService service)
     {
-        this.service=service;
+        this.service = service;
     }
     @GetMapping("/all")
     public String allLenders()
