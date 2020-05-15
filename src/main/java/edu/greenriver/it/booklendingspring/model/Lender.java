@@ -26,6 +26,7 @@ public class Lender
     private String passwordConfirmed;
 
     private String firstName;
+
     private String lastName;
 
     @Lob

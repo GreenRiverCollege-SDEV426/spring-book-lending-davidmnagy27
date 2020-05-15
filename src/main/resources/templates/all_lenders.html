@@ -7,22 +7,28 @@
 
 </head>
 <body>
+    <header th:replace="fragments/header :: top">
 
-<header th:replace="fragments/header :: top">
+    </header>
 
-
-
-</header>
-
-
-<ul>
-
-
-
-    <li th:each="lender : ${lenders}" th:text="${lender.firstName}"></li>
-</ul>
-
-
-
+    <table class="table table-striped">
+        <thead class="">
+            <tr>
+                <!-- <th scope="col">#</th> -->
+                <th scope="col">Username</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">View Lender</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="lender : ${lenders}">
+                <td th:text="${lender.username}"></td>
+                <td th:text="${lender.firstName}"></td>
+                <td th:text="${lender.lastName}"></td>
+                <td><a href="www.google.com">View</a></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>

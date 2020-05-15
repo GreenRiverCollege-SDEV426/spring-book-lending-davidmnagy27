@@ -24,9 +24,7 @@ public class LenderService
 
 
 
-   //  return StreamSupport.stream(lenderRepository.findAll()
-     //        .spliterator(),false)
-       //      .collect(Collectors.toList());
+
  }
 
 }
