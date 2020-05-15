@@ -18,13 +18,20 @@ public class LenderService
      this.lenderRepository = lenderRepository;
  }
 
- public Iterable<Lender> getLenders()
- {
-  return  lenderRepository.findAll();
-
-
-
-
+ public Iterable<Lender> getLenders() {
+  return lenderRepository.findAll();
  }
+
+  public Lender getLender(String username)
+  {
+
+
+   return lenderRepository
+           .getLenderByUsername(username)
+           .orElse(null);
+  }
+
+
+
 
 }

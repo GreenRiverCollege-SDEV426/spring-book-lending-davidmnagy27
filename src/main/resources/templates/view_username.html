@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head ">
+    <meta charset="UTF-8">
+    <title>Book Lending Application</title>
+
+
+</head>
+<body>
+<header th:replace="fragments/header :: top">
+
+</header>
+
+
+<div id="group1">
+<div class="column">
+<div class="d-sm-inline-flex  p-5 row-cols-lg-2">
+<ul class="list-group list-group-flush">
+
+    <h2 th:text="${lender.username}"></h2>
+    <li  class="list-group-item">
+
+
+        <strong>ID: </strong><span th:text="${lender.id}">1</span>
+    </li>
+
+    <li class="list-group-item">
+        <strong>First Name: <span th:text="${lender.firstName}"></span></strong>
+    </li>
+    <li class="list-group-item">
+        <strong>Last Name: <span th:text="${lender.lastName}"></span></strong>
+    </li>
+
+    <li class="list-group-item">
+        <strong>Biography: <span th:text="${lender.bio}"></span></strong>
+    </li>
+
+
+
+</ul>
+</div>
+</div>
+
+</div>
+<div class="column">
+
+    <h2>Books To Lend</h2>
+<div class="d-inline-flex p-lg-5 ">
+
+    <ul class="list-group list-group-flush">
+
+
+        <li class="list-group-item">
+            <strong>Title:<span>Book #1</span> <a href="www.google.com">View</a></strong>
+        </li>
+        <li class="list-group-item">
+            <strong>Title:<span>Book #2</span> <a href="www.google.com">View</a></strong>
+        </li>
+
+        <li class="list-group-item">
+            <strong>Title:<span>Book #3</span><a href="www.google.com">View</a></strong>
+        </li>
+
+
+
+    </ul>
+
+</div>
+
+
+<div id="group2">
+    <h2>Loaned Books</h2>
+    <div class="d-inline-flex p-lg-5">
+
+        <ul class="list-group list-group-flush">
+
+
+            <li class="list-group-item">
+                <strong>Title:<span>Book #1</span> <a href="www.google.com">View</a></strong>
+            </li>
+            <li class="list-group-item">
+                <strong>Title:<span>Book #2</span> <a href="www.google.com">View</a></strong>
+            </li>
+
+            <li class="list-group-item">
+                <strong>Title:<span>Book #3</span><a href="www.google.com">View</a></strong>
+            </li>
+
+
+
+        </ul>
+    </div>
+
+</div>
+
+
+<div id="group3">
+    <h2>Borrowed Books</h2>
+    <div class="d-inline-flex p-lg-5">
+
+        <ul class="list-group list-group-flush">
+
+
+            <li class="list-group-item">
+                <strong>Title:<span>Book #1</span> <a href="www.google.com">View</a></strong>
+            </li>
+            <li class="list-group-item">
+                <strong>Title:<span>Book #2</span> <a href="www.google.com">View</a></strong>
+            </li>
+
+            <li class="list-group-item">
+                <strong>Title:<span>Book #3</span><a href="www.google.com">View</a></strong>
+            </li>
+
+
+
+        </ul>
+    </div>
+
+</div>
+</div>
+
+
+</body>
+</html>

@@ -1,8 +1,12 @@
 
 
-body {
+html {
+    background-color: #DADDD8;
 
 
+}
+body{
+    background-color: #DADDD8;
 }
 
 
@@ -101,14 +105,42 @@ ul li ~ li {
 
 
 
-
-
 .nav-link1 {
     display: inline;
     font-size: small;
     padding-right: 40px;
 
 }
+
+.list-group-flush {
+    border: 2px solid black;
+
+}
+
+
+
+
+#group1 {
+padding: -200px;
+
+
+
+
+}
+#group3 {
+    display: inline;
+}
+
+
+.column {
+    float: left;
+    width: 50%;
+   margin-bottom: 30px;
+
+
+}
+
+
 
 
 

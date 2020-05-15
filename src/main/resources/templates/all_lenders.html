@@ -26,7 +26,8 @@
                 <td th:text="${lender.username}"></td>
                 <td th:text="${lender.firstName}"></td>
                 <td th:text="${lender.lastName}"></td>
-                <td><a href="www.google.com">View</a></td>
+                <td><a th:href="@{'/lenders/username/' + ${lender.username}}">View</a></td>
+
             </tr>
         </tbody>
     </table>
