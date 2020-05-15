@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head ">
+    <meta charset="UTF-8">
+    <title>Book Lending Application</title>
+
+
+</head>
+<body>
+
+<header th:replace="fragments/header :: top">
+
+
+
+</header>
+
+
+<ul>
+
+
+
+    <li th:each="lender : ${lenders}" th:text="${lender.firstName}"></li>
+</ul>
+
+
+
+</body>
+</html>

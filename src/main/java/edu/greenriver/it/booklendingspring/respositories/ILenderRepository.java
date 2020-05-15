@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface ILenderRepository extends CrudRepository<Lender, Long> {
+
+
     Optional<Lender> getLenderByUsername(String username);
-
 }
-
