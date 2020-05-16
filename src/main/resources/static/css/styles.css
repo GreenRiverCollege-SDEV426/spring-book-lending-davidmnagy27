@@ -67,6 +67,7 @@ ul li ~ li {
 
 
 .card-body {
+    background-color:#FAFAFF;
 
 }
 
@@ -85,7 +86,7 @@ ul li ~ li {
 }
 
 #card {
-    border: 2px solid black;
+    border: 1px solid black;
 
 
 
@@ -93,12 +94,12 @@ ul li ~ li {
 
 #card2 {
 
-    border: 2px solid black;
+    border: 1px solid black;
 
 }
 
 #card3 {
-    border: 2px solid black;
+    border: 1px solid black;
 
 
 }
@@ -113,31 +114,42 @@ ul li ~ li {
 }
 
 .list-group-flush {
-    border: 2px solid black;
+    border: 0px solid black;
 
 }
 
-
-
-
-#group1 {
-padding: -200px;
-
-
-
-
-}
-#group3 {
-    display: inline;
+.flex-box {
+    display: flex;
+    justify-content: center;
 }
 
+.flex-box-item {
+    width: 500px;
+    margin: 20px;
 
-.column {
-    float: left;
-    width: 50%;
-   margin-bottom: 30px;
+}
 
+.flex1 {
+    max-width: 200px;
+    margin: 50px;
+    display: inline-flex;
+    border: 1px solid black;
+    align-items: flex-start;
 
+}
+
+.flex2 {
+
+    background-color: white;
+    max-width: 200px;
+    margin: 50px;
+    display: inline-flex;
+    border: 1px solid black;
+    align-items: flex-start;
+}
+
+#1 {
+    color: white;
 }
 
 
