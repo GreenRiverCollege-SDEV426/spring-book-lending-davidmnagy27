@@ -152,6 +152,21 @@ ul li ~ li {
     color: white;
 }
 
+.column {
+margin-left: 20px;
+    width: 50%;
+}
+
+
+.row:after {
+    content: "";
+    display: flex;
+    clear: both;
+}
+.column1 {
+    margin-top:40px;
+
+}
 
 
 

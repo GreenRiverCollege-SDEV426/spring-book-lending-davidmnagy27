@@ -18,4 +18,11 @@ public class BookService
 
 
     }
+
+    public Book getBook(String isbn)
+    {
+        return bookRepository
+                .getLenderByisbn(isbn)
+                .orElse(null);
+    }
 }

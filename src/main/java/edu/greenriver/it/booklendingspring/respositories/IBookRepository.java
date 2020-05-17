@@ -6,7 +6,8 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-public interface IBookRepository extends CrudRepository<Book, Long> {
+public interface IBookRepository extends CrudRepository<Book, Long>
+{
 
 
         Optional<Book> getLenderByisbn(String isbn);
