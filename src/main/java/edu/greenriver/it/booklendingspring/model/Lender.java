@@ -1,3 +1,8 @@
+//David Nagy
+//5/17/2020
+//Lender.java
+// controlls the lender data in the database
+
 package edu.greenriver.it.booklendingspring.model;
 
 import lombok.AllArgsConstructor;
@@ -7,6 +12,10 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+/**
+ * @author davidnagy
+ * @version 2.0
+ */
 @Entity
 @Data
 @NoArgsConstructor

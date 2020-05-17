@@ -1,17 +1,33 @@
+//David Nagy
+//5/17/2020
+//BookService.java
+// The service layer controls business logic
+
 package edu.greenriver.it.booklendingspring.services;
 
 import edu.greenriver.it.booklendingspring.model.Book;
 import edu.greenriver.it.booklendingspring.respositories.IBookRepository;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author davidnagy
+ * @version 2.0
+ */
 @Service
 public class BookService
 {
     private IBookRepository bookRepository;
 
+    /**
+     * @param bookRepository works with the database of business logic
+     */
     public BookService(IBookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
+
+    /**
+     * @return getbook from database
+     */
         public Iterable<Book> getbook()
         {
             return bookRepository.findAll();
@@ -19,10 +35,21 @@ public class BookService
 
     }
 
+    /**
+     * @param isbn title of book
+     * @return book
+     */
     public Book getBook(String isbn)
     {
         return bookRepository
                 .getLenderByisbn(isbn)
                 .orElse(null);
+    }
+
+    @Override
+    public String toString() {
+        return "BookService{" +
+                "bookRepository=" + bookRepository +
+                '}';
     }
 }

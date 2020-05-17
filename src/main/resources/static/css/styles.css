@@ -50,7 +50,7 @@ h5 {
 
 p {
     color: #1C1C1C;
-    font-family: 'DejaVu Serif', Georgia, "Times New Roman", Times, serifm;
+    font-family: 'DejaVu Serif', Georgia, "Times New Roman", Times, serifm, serif;
 }
 
 ul li {
@@ -113,10 +113,8 @@ ul li ~ li {
 
 }
 
-.list-group-flush {
-    border: 0px solid black;
 
-}
+
 
 .flex-box {
     display: flex;

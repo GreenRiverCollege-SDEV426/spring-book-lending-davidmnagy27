@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: head ">
@@ -16,7 +19,9 @@
                 <h2 th:text="${lender.username}"></h2>
 
                 <li class="list-group-item"><strong>ID</strong>: <span th:text="${lender.id}">1</span></li>
-                <li class="list-group-item"><strong>First Name</strong>: <span th:text="${lender.firstName}"></span></li>
+                <li class="list-group-item"><strong>First Name</strong>: <span th:text="${lender.firstName}">
+
+                </span></li>
                 <li class="list-group-item"><strong>Last Name</strong>: <span th:text="${lender.lastName}"></span></li>
                 <li class="list-group-item"><strong>Biography</strong>: <span th:text="${lender.bio}"></span></li>
             </ul>
@@ -26,30 +31,29 @@
             <ul class="list-group">
                 <h2>Books To Lend</h2>
 
-                <li class="list-group-item"><strong>Title</strong>: <span>Book #1 </span><a href="www.google.com">View</a></li>
-                <li class="list-group-item"><strong>Title</strong>: <span>Book #2 </span><a href="www.google.com">View</a></li>
-                <li class="list-group-item"><strong>Title</strong>: <span>Book #3 </span><a href="www.google.com">View</a></li>
+                <li class="list-group-item"><strong>Title</strong>: <span>Book #1 </span><a href="">View</a></li>
+                <li class="list-group-item"><strong>Title</strong>: <span>Book #2 </span><a href="">View</a></li>
+                <li class="list-group-item"><strong>Title</strong>: <span>Book #3 </span><a href="">View</a></li>
             </ul>
 
             <ul class="list-group">
                 <h2>Loaned Books</h2>
 
-                <li class="list-group-item"><strong>Title</strong>: <span>Book #1 </span><a href="www.google.com">View</a></li>
-                <li class="list-group-item"><strong>Title</strong>: <span>Book #2 </span><a href="www.google.com">View</a></li>
-                <li class="list-group-item"><strong>Title</strong>: <span>Book #3 </span><a href="www.google.com">View</a></li>
+                <li class="list-group-item"><strong>Title</strong>: <span>Book #1 </span><a href="">View</a></li>
+                <li class="list-group-item"><strong>Title</strong>: <span>Book #2 </span><a href="">View</a></li>
+                <li class="list-group-item"><strong>Title</strong>: <span>Book #3 </span><a href="">View</a></li>
             </ul>
 
             <ul class="list-group">
                 <h2>Borrowed Books</h2>
 
-                <li class="list-group-item"><strong>Title</strong>: <span>Book #1 </span><a href="www.google.com">View</a></li>
-                <li class="list-group-item"><strong>Title</strong>: <span>Book #2 </span><a href="www.google.com">View</a></li>
-                <li class="list-group-item"><strong>Title</strong>: <span>Book #3 </span><a href="www.google.com">View</a></li>
+                <li class="list-group-item"><strong>Title</strong>: <span>Book #1 </span><a href="">View</a></li>
+                <li class="list-group-item"><strong>Title</strong>: <span>Book #2 </span><a href="">View</a></li>
+                <li class="list-group-item"><strong>Title</strong>: <span>Book #3 </span><a href="">View</a></li>
             </ul>
 
         </div>
     </div>
-
 
 
 </body>

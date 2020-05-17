@@ -3,8 +3,7 @@
 <head th:replace="fragments/header :: head ">
     <meta charset="UTF-8">
     <title>Book Lending Application</title>
-
-
+    
 </head>
 <body>
 <header th:replace="fragments/header :: top">
@@ -21,49 +20,19 @@
                 <li class="list-group-item"><strong>ISBN </strong>: <span th:text="${isbn.getIsbn()}"></span></li>
                 <li class="list-group-item"><strong>Author </strong>: <span th:text="${isbn.getAuthor()}"></span></li>
                 <li class="list-group-item"><strong>Pages </strong>: <span th:text="${isbn.getPages()}"></span></li>
-                <li class="list-group-item"><strong>Synopsis </strong>: <span th:text="${isbn.getSynopsis()}"></span></li>
+                <li class="list-group-item"><strong>Synopsis </strong>: <span th:text="${isbn.getSynopsis()}">
+
+                </span></li>
             </ul>
         </div>
     </div>
 
         <div class="column1">
-
-
-            <img th:src="'/images/'+ ${isbn.title}+'.jpg'"/>
-
-
-
+            
+            <img th:src="'/images/'+ ${isbn.title}+'.jpg'" alt="#" src="#"/>
+            
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-<!--
-
-
-<div class="column">
-<div class="flex-box-item">
-    <ul class="list-group">
-        <h2 th:text="${isbn.getAuthor()}"></h2>
-
-        <li class="list-group-item"><strong>ID </strong>: <span th:text="${isbn.getId()}">1</span></li>
-        <li class="list-group-item"><strong>ISBN </strong>: <span th:text="${isbn.getIsbn()}"></span></li>
-        <li class="list-group-item"><strong>Author </strong>: <span th:text="${isbn.getAuthor()}"></span></li>
-        <li class="list-group-item"><strong>Pages </strong>: <span th:text="${isbn.getPages()}"></span></li>
-        <li class="list-group-item"><strong>Synopsis </strong>: <span th:text="${isbn.getSynopsis()}"></span></li>
-    </ul>
-</div>
-
-
-<img th:src="'/images/'+ ${isbn.title}+'.jpg'"/>
-</div>
--->
 </body>
 </html>
