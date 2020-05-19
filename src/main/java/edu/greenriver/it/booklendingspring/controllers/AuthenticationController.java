@@ -5,6 +5,8 @@ import edu.greenriver.it.booklendingspring.services.LenderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class AuthenticationController
@@ -21,6 +23,22 @@ public class AuthenticationController
     {
         model.addAttribute("lender", new Lender());
         return "register";
+    }
+
+    @PostMapping("/register")
+    public String register(@ModelAttribute Lender lender,
+                           Model model)
+    {
+        lender= service.registerUser(lender);
+        if(lender != null)
+        {
+            return "redirect:";
+        }
+        else
+        {
+            model.addAttribute("errors","Password does not match!");
+            return "register";
+        }
     }
 
 

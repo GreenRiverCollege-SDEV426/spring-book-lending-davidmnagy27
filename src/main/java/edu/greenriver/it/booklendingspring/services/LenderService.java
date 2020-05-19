@@ -45,6 +45,21 @@ public class LenderService
            .orElse(null);
   }
 
+
+  public Lender registerUser(Lender lender)
+  {
+
+   //if password match
+   if ( lender.getPassword().equals(lender.getPasswordConfirmed()))
+   {
+    return lenderRepository.save(lender);
+   }
+   else
+   {
+    return null;
+   }
+  }
+
  @Override
  public String toString()
  {
