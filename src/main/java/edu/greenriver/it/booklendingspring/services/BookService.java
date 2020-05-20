@@ -6,6 +6,7 @@
 package edu.greenriver.it.booklendingspring.services;
 
 import edu.greenriver.it.booklendingspring.model.Book;
+import edu.greenriver.it.booklendingspring.model.Lender;
 import edu.greenriver.it.booklendingspring.respositories.IBookRepository;
 import org.springframework.stereotype.Service;
 
@@ -45,6 +46,18 @@ public class BookService
                 .getLenderByisbn(isbn)
                 .orElse(null);
     }
+
+    public boolean checkisbn(String isbn)
+    {
+       return bookRepository.getBookByIsbn(isbn).isEmpty();
+
+
+    }
+
+
+
+
+
 
     @Override
     public String toString() {
