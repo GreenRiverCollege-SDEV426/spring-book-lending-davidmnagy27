@@ -9,8 +9,16 @@
 <header th:replace="fragments/header :: top">
 
 </header>
+
+
+<div th:text="${errors}" class="alert alert-danger" role="alert">
+
+</div>
 <div class="flex-box">
-    <form th:object="${book}" th:action="@{/addbook}" method="post">
+
+
+
+    <form th:object="${book}" th:action="@{/books/addbook}" method="post">
         <div class="form-group">
 
             <label for="isbn">ISBN</label>

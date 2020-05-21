@@ -7,12 +7,12 @@
 
 package edu.greenriver.it.booklendingspring.controllers;
 
+import edu.greenriver.it.booklendingspring.model.Book;
+import edu.greenriver.it.booklendingspring.model.Lender;
 import edu.greenriver.it.booklendingspring.services.BookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author davidnagy
@@ -52,6 +52,33 @@ public class BookController {
         model.addAttribute("isbn",service.getBook(isbn));
         return "view_books";
     }
+
+    @GetMapping("/addbook")
+    public String registerbook(Model model) {
+        model.addAttribute("book",new Book());
+        return "addbook";
+    }
+
+    @PostMapping("/addbook")
+    public String addbook(@ModelAttribute Book book,
+                          Model model) {
+
+        if (service.checkisbn(book.getIsbn()))
+        {
+            // add book to the database
+            service.addBook(book);
+
+            return "redirect:/books/addbook";
+        } else {
+            model.addAttribute("errors", "ISBN already in use!");
+            return "addbook";
+        }
+
+
+
+    }
+
+
 
     @Override
     public String toString()

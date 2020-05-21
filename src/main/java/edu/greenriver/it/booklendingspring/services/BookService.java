@@ -49,12 +49,16 @@ public class BookService
 
     public boolean checkisbn(String isbn)
     {
+        bookRepository.getBookByIsbn(isbn);
+        bookRepository.getLenderByisbn(isbn);
        return bookRepository.getBookByIsbn(isbn).isEmpty();
-
-
     }
 
-
+    // adds a book to the database
+    public void addBook(Book book)
+    {
+        bookRepository.save(book);
+    }
 
 
 
