@@ -28,6 +28,8 @@ public interface IBookRepository extends CrudRepository<Book, Long>
         Optional<Book> getLenderByisbn(String isbn);
         Optional<Book> getBookByIsbn(String isbn);
 
+
+
 }
 
 

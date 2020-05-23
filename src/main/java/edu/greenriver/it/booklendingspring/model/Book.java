@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.core.io.ClassPathResource;
 
 import javax.persistence.*;
 
@@ -22,8 +23,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Book
-{
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -34,6 +34,19 @@ public class Book
     private int pages;
 
     @Lob
-    private  String synopsis;
+    private String synopsis;
+    @Lob
+    private Byte[] coverImage;
+
+
+    public String getImage() {
+        String location = "/images/covers/" + title + ".jpg";
+
+        if (new ClassPathResource("/static" + location).isFile()) {
+            return location;
+        }
+        return "/books/" + isbn + "/image";
+    }
+
 
 }

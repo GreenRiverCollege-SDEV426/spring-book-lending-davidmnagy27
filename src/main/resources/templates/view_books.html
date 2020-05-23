@@ -29,7 +29,7 @@
 
         <div class="column1">
             
-            <img th:src="'/images/'+ ${isbn.title}+'.jpg'" alt="#" src="#"/>
+            <img th:src="${'/books/'+book.isbn+'/image'}" alt="#" src="#"/>
             
         </div>
     </div>

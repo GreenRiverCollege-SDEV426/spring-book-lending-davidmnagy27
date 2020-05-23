@@ -12,14 +12,18 @@
 
 </header>
 
-<div class="flex-column">
+   <div class="flex-box">
+<div th:unless="${#arrays.isEmpty(books)}" class="flex-column" th:each="book : ${books}">
 <div class="flex1">
     <div class="">
-            <img class="card-img-top" th:src="@{/images/emma.jpg}" alt="" src="">
+            <img class="card-img-top" th:src="${'/books/'+book.isbn +'/image'}" alt="" src="">
 
             <div class="card-body">
-                <h4>Emma</h4>
-                <a href="#" class="nav-link1">View Book</a>
+                <h4 th:text="${book.title}">Emma</h4>
+                <a th:href="@{'/books/view/' + ${book.isbn}}"
+                   href="#" class="nav-link1">View Book</a>
+
+                </div> 
 
             </div>
 
@@ -28,149 +32,7 @@
     </div>
 
 
-    <div class="flex1">
 
-            <div id="1">
-                <img class="card-img-top" th:src="@{/images/The Hunger Games.jpg}" alt="" src="">
-
-                <div class="card-body">
-                    <h4>The Hungry Games</h4>
-                    <a href="#" class="nav-link1">View Book</a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-<div class="flex1">
-
-    <div id="2">
-        <img class="card-img-top" th:src="@{/images/frankenstein.jpg}" alt="" src="">
-
-        <div class="card-body">
-            <h4>Frankenstein</h4>
-            <a href="#" class="nav-link1">View Book</a>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<div class="flex1">
-
-    <div id="3">
-        <img class="card-img-top" th:src="@{/images/Great Expectations.jpg}" alt="" src="">
-
-        <div class="card-body">
-            <h4>Great Expectations</h4>
-            <a href="#" class="nav-link1">View Book</a>
-
-        </div>
-
-    </div>
-
-
-</div>
-
-<div class="flex2">
-
-    <div id="4">
-        <img class="card-img-top" th:src="@{/images/Where The Red Fern Grows.jpg}" alt="" src="">
-
-        <div class="card-body">
-            <h4>Where the red fern grows</h4>
-            <a href="#" class="nav-link1">View Book</a>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<div class="flex2">
-
-    <div id="5">
-        <img class="card-img-top" th:src="@{/images/War and peace.jpg}" alt="" src="">
-
-        <div class="card-body">
-            <h4>War and Peace</h4>
-            <a href="#" class="nav-link1">View Book</a>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<div class="flex2">
-
-    <div id="6">
-        <img class="card-img-top" th:src="@{/images/ulysses.jpg}" alt="" src="">
-
-        <div class="card-body">
-            <h4>Ulysses</h4>
-            <a href="#" class="nav-link1">View Book</a>
-
-        </div>
-
-    </div>
-
-
-</div>
-
-
-<div class="flex2">
-
-    <div id="7">
-        <img class="card-img-top" th:src="@{/images/no_cover.png}" alt="" src="">
-
-        <div class="card-body">
-            <h4>Ulysses</h4>
-            <a href="#" class="nav-link1">View Book</a>
-
-        </div>
-
-    </div>
-
-
-</div>
-
-
-<div class="flex2">
-
-    <div id="8">
-        <img class="card-img-top" th:src="@{/images/The great gatsby.jpg}" alt="" src="">
-
-        <div class="card-body">
-            <h4>The Great Gatsby</h4>
-            <a href="#" class="nav-link1">View Book</a>
-
-        </div>
-
-    </div>
-
-
-</div>
-
-<div class="flex2">
-
-    <div id="9">
-        <img class="card-img-top" th:src="@{/images/The adventures of huckleberry finn.jpg}" alt="" src="">
-
-        <div class="card-body">
-            <h4>The Adventure Of Huckleberry Finn</h4>
-            <a href="#" class="nav-link1">View Book</a>
-
-        </div>
-
-    </div>
-
-</div>
 
 </div>
 

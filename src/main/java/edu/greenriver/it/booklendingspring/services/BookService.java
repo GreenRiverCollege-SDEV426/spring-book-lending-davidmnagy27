@@ -9,6 +9,9 @@ import edu.greenriver.it.booklendingspring.model.Book;
 import edu.greenriver.it.booklendingspring.model.Lender;
 import edu.greenriver.it.booklendingspring.respositories.IBookRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 /**
  * @author davidnagy
@@ -51,14 +54,42 @@ public class BookService
     {
         bookRepository.getBookByIsbn(isbn);
         bookRepository.getLenderByisbn(isbn);
+
        return bookRepository.getBookByIsbn(isbn).isEmpty();
     }
 
     // adds a book to the database
-    public void addBook(Book book)
+   public void addBook(Book book)
     {
         bookRepository.save(book);
     }
+
+
+    public boolean saveBook(Book book, MultipartFile file)  throws IOException
+    {
+        if(getBook(book.getIsbn()) == null)
+        {
+         saveImageToBook(book, file);
+         bookRepository.save(book);
+         return true;
+
+        }
+        return false;
+    }
+
+    private void saveImageToBook(Book book, MultipartFile file) throws IOException {
+       byte[] fileBytes = file.getBytes();
+       Byte[] bytes = new Byte[fileBytes.length];
+
+       for (int i = 0; i < fileBytes.length; i++)
+       {
+           bytes[i] = new Byte(fileBytes[i]);
+
+        }
+       book.setCoverImage(bytes);
+
+    }
+
 
 
 
