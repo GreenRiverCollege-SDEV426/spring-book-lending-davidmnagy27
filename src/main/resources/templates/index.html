@@ -52,13 +52,13 @@ Main page of springbook lending
                 <a th:text="#{home.nav.viewlenders}" class="nav-link" href="#">View Lenders</a>
             </li>
             <li class="nav-item">
-                <a th:text="#{home.nav.allbooks}" class="nav-link" href="#">All Books</a>
+                <a th:href="@{'/books/' + ${all}}" class="nav-link" href="#">All Books</>
             </li>
             <li class="nav-item">
                 <a th:text="#{home.nav.mybooks}" class="nav-link" href="#">My Books</a>
             </li>
             <li class="nav-item">
-                <a th:href="@{'/books/' + ${book.addbook}}" class="nav-link" href="#">Add a Book</a>
+                <a th:href="@{'/books/' + ${addbook}}" class="nav-link" href="#">Add a Book</a>
             </li>
             <li class="nav-item">
                 <a th:href="@{'/register/' + ${register}}" class="nav-link" href="#">Register</a>
