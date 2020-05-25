@@ -172,6 +172,18 @@ margin-left: 20px;
 
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 200px);
+    /*grid-auto-rows: minmax(250px, auto);*/
+    grid-auto-rows: 300px;
+    grid-gap: 50px;
+}
+
+
+
+
+
 
 
 

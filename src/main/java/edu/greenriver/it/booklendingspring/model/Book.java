@@ -39,7 +39,8 @@ public class Book {
     private Byte[] coverImage;
 
 
-    public String getImage() {
+    public String getImage()
+    {
         String location = "/images/covers/" + title + ".jpg";
 
         if (new ClassPathResource("/static" + location).isFile()) {

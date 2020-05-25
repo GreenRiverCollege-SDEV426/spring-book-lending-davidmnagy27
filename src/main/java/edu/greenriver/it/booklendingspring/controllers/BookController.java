@@ -64,14 +64,15 @@ public class BookController {
     @GetMapping("/{isbn}/image")
     public void bookImage(@PathVariable String isbn, HttpServletResponse response) throws IOException
     {
-        Book book =service.getBook(isbn);
-        Byte[] bytes=book.getCoverImage();
+        Book book = service.getBook(isbn);
+        Byte[] bytes = book.getCoverImage();
 
         byte[] fileBytes = new byte[bytes.length];
         for(int i=0;i<bytes.length; i++)
         {
             fileBytes[i]= bytes[i];
         }
+
 
         response.setContentType("image/jpeg");
         InputStream io = new ByteArrayInputStream(fileBytes);

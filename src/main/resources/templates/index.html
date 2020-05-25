@@ -58,10 +58,10 @@ Main page of springbook lending
                 <a th:text="#{home.nav.mybooks}" class="nav-link" href="#">My Books</a>
             </li>
             <li class="nav-item">
-                <a th:text="#{home.nav.addbook}" class="nav-link" href="#">Add a Book</a>
+                <a th:href="@{'/books/' + ${book.addbook}}" class="nav-link" href="#">Add a Book</a>
             </li>
             <li class="nav-item">
-                <a th:text="#{home.nav.register}" class="nav-link" href="#">Register</a>
+                <a th:href="@{'/register/' + ${register}}" class="nav-link" href="#">Register</a>
             </li>
             <li class="nav-item">
                 <a th:text="#{home.nav.login}" class="nav-link" href="#">Login</a>
@@ -81,7 +81,7 @@ Main page of springbook lending
             <p th:text="#{home.header.lenders.subtext}">Book lending is alive and well! Why buy a new book
                 when you can crowd-source a collection of stories that will keep you
                 busy reading for years to come.</p>
-            <a th:text="#{home.gettingstarted.button}" href="#" class="nav-link1">Register!</a>
+            <a th:href="@{'/register/' + ${register}}" class="nav-link1">Register!</a>
             <a th:text="#{home.nav.viewlenders}" href="#" class="nav-link1">View Lenders</a>
         </div>
 

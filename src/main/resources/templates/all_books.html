@@ -11,30 +11,20 @@
 <header th:replace="fragments/header :: top">
 
 </header>
-
    <div class="flex-box">
-<div th:unless="${#arrays.isEmpty(books)}" class="flex-column" th:each="book : ${books}">
-<div class="flex1">
-    <div class="">
-            <img class="card-img-top" th:src="${'/books/'+book.isbn +'/image'}" alt="" src="">
+      <div class="grid-container">
+         <div th:unless="${#arrays.isEmpty(books)}" class="flex-column" th:each="book : ${books}">
+               <div class="grid-item">
+                   <img class="card-img-top" th:src="${'/books/'+book.isbn +'/image'}" alt="" src="">
+                   <div class="card-body">
+                       <h4 th:text="${book.title}"></h4>
+                       <a th:href="@{'/books/' + ${book.isbn}}" href="#" class="nav-link1">View Book</a>
+                   </div>
+               </div>
+         </div>
+      </div>
+   </div>
 
-            <div class="card-body">
-                <h4 th:text="${book.title}">Emma</h4>
-                <a th:href="@{'/books/view/' + ${book.isbn}}"
-                   href="#" class="nav-link1">View Book</a>
-
-                </div> 
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-
-</div>
 
 </body>
 </html>
