@@ -6,7 +6,7 @@
 package edu.greenriver.it.booklendingspring.services;
 
 import edu.greenriver.it.booklendingspring.model.Book;
-import edu.greenriver.it.booklendingspring.model.Lender;
+
 import edu.greenriver.it.booklendingspring.respositories.IBookRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,10 +22,13 @@ public class BookService
 {
     private IBookRepository bookRepository;
 
+
+
     /**
      * @param bookRepository works with the database of business logic
      */
-    public BookService(IBookRepository bookRepository) {
+    public BookService(IBookRepository bookRepository)
+    {
         this.bookRepository = bookRepository;
     }
 
@@ -50,6 +53,10 @@ public class BookService
                 .orElse(null);
     }
 
+    /**
+     * @param isbn Checking ISBN and and get lender by ISBN
+     * @return book by isbn
+     */
     public boolean checkisbn(String isbn)
     {
         bookRepository.getBookByIsbn(isbn);
@@ -58,6 +65,9 @@ public class BookService
        return bookRepository.getBookByIsbn(isbn).isEmpty();
     }
 
+    /**
+     * @param book adding book into the database
+     */
     // adds a book to the database
    public void addBook(Book book)
     {
@@ -65,8 +75,15 @@ public class BookService
     }
 
 
+    /**
+     * @param book saving book into database
+     * @param file save book using multipartfile
+     * @return saved book
+     * @throws IOException returns true if booked saved
+     */
     public boolean saveBook(Book book, MultipartFile file)  throws IOException
     {
+
         if(getBook(book.getIsbn()) == null)
         {
          saveImageToBook(book, file);
@@ -77,7 +94,8 @@ public class BookService
         return false;
     }
 
-    private void saveImageToBook(Book book, MultipartFile file) throws IOException {
+    private void saveImageToBook(Book book, MultipartFile file) throws IOException
+    {
        byte[] fileBytes = file.getBytes();
        Byte[] bytes = new Byte[fileBytes.length];
 

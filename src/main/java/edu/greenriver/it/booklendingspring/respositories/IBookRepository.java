@@ -26,6 +26,11 @@ public interface IBookRepository extends CrudRepository<Book, Long>
          * @return the book object
          */
         Optional<Book> getLenderByisbn(String isbn);
+
+        /**
+         * @param isbn Getting book by ISBN object
+         * @return Book
+         */
         Optional<Book> getBookByIsbn(String isbn);
 
 

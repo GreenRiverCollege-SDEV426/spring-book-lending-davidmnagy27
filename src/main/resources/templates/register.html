@@ -3,87 +3,58 @@
 <head th:replace="fragments/header :: head ">
     <meta charset="UTF-8">
     <title>Book Lending Application</title>
-
 </head>
 <body>
 <header th:replace="fragments/header :: top">
-
 </header>
-
 <div class="cover">
-
-    <!--
-    if there is a error : create a div of alert,
-    else: do nothing
-    -->
 
     <div th:text="${errors}"  class="alert alert-danger alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-
-<div class="flex-box">
-
-<form th:object="${lender}" th:action="@{/register}" method="post">
-    <div class="form-group">
-
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username"
-        name="username"
-        th:field="*{username}">
+    <div class="flex-box">
+        <form th:object="${lender}" th:action="@{/register}" method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username"
+                       name="username"
+                       th:field="*{username}">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password"
+                       name="password"
+                       th:field="*{password}">
+            </div>
+            <div class="form-group">
+                <label for="confirm">Confirm</label>
+                <input type="password" class="form-control" id="confirm"
+                       name="confirm"
+                       th:field="*{passwordConfirmed}">
+            </div>
+            <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" class="form-control" id="firstname"
+                       name="firstname"
+                       th:field="*{firstName}">
+            </div>
+            <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" class="form-control" id="lastname"
+                       name="lastname"
+                       th:field="*{lastName}">
+            </div>
+            <div class="form-group">
+                <label for="biography">Biography</label>
+                <textarea class="form-control" id="biography" rows="3"
+                          name="biography"
+                          th:field="*{bio}"></textarea>
+            </div>
+            <button type="submit" class="btn btn-outline-secondary">Register</button>
+        </form>
     </div>
-
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password"
-        name="password"
-        th:field="*{password}">
-    </div>
-
-
-    <div class="form-group">
-        <label for="confirm">Confirm</label>
-        <input type="password" class="form-control" id="confirm"
-               name="confirm"
-               th:field="*{passwordConfirmed}">
-    </div>
-
-
-    <div class="form-group">
-        <label for="firstname">First Name</label>
-        <input type="text" class="form-control" id="firstname"
-               name="firstname"
-               th:field="*{firstName}">
-    </div>
-
-    <div class="form-group">
-        <label for="lastname">Last Name</label>
-        <input type="text" class="form-control" id="lastname"
-               name="lastname"
-               th:field="*{lastName}">
-    </div>
-
-    <div class="form-group">
-        <label for="biography">Biography</label>
-        <textarea class="form-control" id="biography" rows="3"
-        name="biography"
-        th:field="*{bio}"></textarea>
-    </div>
-
-
-
-    <button type="submit" class="btn btn-outline-secondary">Register</button>
-</form>
-
-
-
-</div>
-
-
-
-
-
 </div>
 </body>
 </html>

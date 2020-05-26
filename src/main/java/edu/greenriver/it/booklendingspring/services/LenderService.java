@@ -46,6 +46,10 @@ public class LenderService
   }
 
 
+ /**
+  * @param lender registering new user covifriming the password is the same.
+  * @return saving lender to database
+  */
   public Lender registerUser(Lender lender)
   {
 
