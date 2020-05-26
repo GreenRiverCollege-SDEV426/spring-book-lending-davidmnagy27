@@ -1,3 +1,9 @@
+//David Nagy
+//5/25/2020
+//I18COnfiguration.java
+
+
+
 package edu.greenriver.it.booklendingspring.configuration;
 
 import org.springframework.context.annotation.Bean;
@@ -10,9 +16,17 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import java.util.Locale;
 
+/**
+ * @author davidnagy
+ * @version 1.0
+ *
+ */
 @Configuration
 public class I18Configuration implements WebMvcConfigurer
 {
+    /**
+     * @return resolver to add a language to your website
+     */
     @Bean
     public LocaleResolver localeResolver()
     {
@@ -21,6 +35,9 @@ public class I18Configuration implements WebMvcConfigurer
         return resolver;
     }
 
+    /**
+     * @return interceptor
+     */
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor()
     {

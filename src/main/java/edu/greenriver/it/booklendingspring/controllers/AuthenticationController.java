@@ -1,27 +1,44 @@
+//David Nagy
+//5/25/2020
+//AuthenticationController
+// Controlls the register form.
+
+
 package edu.greenriver.it.booklendingspring.controllers;
 
-import edu.greenriver.it.booklendingspring.model.Book;
+
 import edu.greenriver.it.booklendingspring.model.Lender;
-import edu.greenriver.it.booklendingspring.services.BookService;
+
 import edu.greenriver.it.booklendingspring.services.LenderService;
-import org.hibernate.validator.constraints.ISBN;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+/**
+ * @author davidnagy
+ * @version 3.0
+ * controls the LenderService layer
+ */
 @Controller
 public class AuthenticationController
 {
     private LenderService service;
 
 
+    /**
+     * @param service the service layer for the register form
+     */
     public AuthenticationController(LenderService service)
     {
         this.service =service;
     }
 
+    /**
+     * @param model adding a new lender
+     * @return lender
+     */
     @GetMapping("/register")
     public String register(Model model)
     {
@@ -29,6 +46,11 @@ public class AuthenticationController
         return "register";
     }
 
+    /**
+     * @param lender if the password doesnt match sends out an error
+     * @param model attribute errors
+     * @return register
+     */
     @PostMapping("/register")
     public String register(@ModelAttribute Lender lender,
                            Model model)
@@ -47,5 +69,10 @@ public class AuthenticationController
     }
 
 
-
+    @Override
+    public String toString() {
+        return "AuthenticationController{" +
+                "service=" + service +
+                '}';
+    }
 }

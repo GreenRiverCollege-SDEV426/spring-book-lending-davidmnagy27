@@ -8,16 +8,16 @@
 package edu.greenriver.it.booklendingspring.controllers;
 
 import edu.greenriver.it.booklendingspring.model.Book;
-import edu.greenriver.it.booklendingspring.model.Lender;
+
 import edu.greenriver.it.booklendingspring.services.BookService;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
-import org.springframework.core.io.ClassPathResource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServlet;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -61,6 +61,11 @@ public class BookController {
         return "view_books";
     }
 
+    /**
+     * @param isbn adding a book image to the view book
+     * @param response to getting the image from file
+     * @throws IOException finding the image
+     */
     @GetMapping("/{isbn}/image")
     public void bookImage(@PathVariable String isbn, HttpServletResponse response) throws IOException
     {
@@ -81,6 +86,10 @@ public class BookController {
 
     }
 
+    /**
+     * @param model adding new book
+     * @return addbook
+     */
     @GetMapping("/addbook")
     public String registerbook(Model model) {
         model.addAttribute("book", new Book());
@@ -88,6 +97,13 @@ public class BookController {
     }
 
 
+    /**
+     * @param book adding image to file
+     * @param file the file reads the image sends to database
+     * @param model saves book in database
+     * @return add book
+     * @throws IOException checks isbn
+     */
     @PostMapping("/addbook")
     public String addbook(@ModelAttribute Book book,
                           @RequestParam("cover-image") MultipartFile file,

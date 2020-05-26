@@ -138,7 +138,7 @@ ul li ~ li {
 
 .flex2 {
 
-    background-color: white;
+    background-color:white;
     max-width: 200px;
     margin: 50px;
     display: inline-flex;
@@ -174,10 +174,18 @@ margin-left: 20px;
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(5, 200px);
+    grid-template-columns: repeat(4, 200px);
     /*grid-auto-rows: minmax(250px, auto);*/
     grid-auto-rows: 300px;
     grid-gap: 50px;
+    grid-row-gap: 9em;
+
+}
+.flex-box2 {
+    display: flex;
+    justify-content: center;
+
+
 }
 
 

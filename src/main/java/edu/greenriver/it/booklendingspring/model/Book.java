@@ -39,6 +39,9 @@ public class Book {
     private Byte[] coverImage;
 
 
+    /**
+     * @return book/image
+     */
     public String getImage()
     {
         String location = "/images/covers/" + title + ".jpg";
