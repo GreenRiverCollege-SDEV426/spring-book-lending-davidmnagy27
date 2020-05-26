@@ -43,7 +43,7 @@ public class AuthenticationController
     public String register(Model model)
     {
         model.addAttribute("lender", new Lender());
-        return "register";
+        return "/general/register";
     }
 
     /**
@@ -60,7 +60,7 @@ public class AuthenticationController
             return "redirect:";
         } else {
             model.addAttribute("errors", "Password does not match!");
-            return "register";
+            return "/general/register";
         }
 
 

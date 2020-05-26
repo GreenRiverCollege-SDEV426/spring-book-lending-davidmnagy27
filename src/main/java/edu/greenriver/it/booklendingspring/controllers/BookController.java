@@ -28,7 +28,7 @@ import java.io.InputStream;
  * @version 2.0
  */
 @Controller
-@RequestMapping("/books")
+@RequestMapping("/templates/books")
 public class BookController {
     private BookService service;
 
@@ -45,7 +45,7 @@ public class BookController {
      */
     @GetMapping("/all")
     public String allBooks(Model model) {
-        model.addAttribute("books", service.getbook());
+        model.addAttribute("templates/books", service.getbook());
         return "all_books";
     }
 
@@ -109,7 +109,7 @@ public class BookController {
                           @RequestParam("cover-image") MultipartFile file,
                           Model model) throws IOException {
 
-       if (service.checkisbn(book.getIsbn()))
+        if (service.checkisbn(book.getIsbn()))
         {
             // add book to the database
 
@@ -119,7 +119,7 @@ public class BookController {
             return "redirect:/books/addbook";
         }
         else
-            {
+        {
             model.addAttribute("errors", "ISBN already in use!");
             return "addbook";
         }
@@ -143,8 +143,4 @@ public class BookController {
                 '}';
     }
 }
-
-
-
-
 

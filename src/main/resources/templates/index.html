@@ -36,13 +36,13 @@
             <a th:text="#{home.nav.viewlenders}" class="nav-link" href="#">View Lenders</a>
         </li>
         <li class="nav-item">
-            <a th:href="@{/books/all}" class="nav-link" href="#">All Books</a>
+            <a th:href="@{/templates/books/all}" class="nav-link" href="#">All Books</a>
         </li>
         <li class="nav-item">
             <a th:text="#{home.nav.mybooks}" class="nav-link" href="#">My Books</a>
         </li>
         <li class="nav-item">
-            <a th:href="@{/books/addbook}" class="nav-link" href="#">Add a Book</a>
+            <a th:href="@{/templates/books/addbook}" class="nav-link" href="#">Add a Book</a>
         </li>
         <li class="nav-item">
             <a th:href="@{/register/}" class="nav-link" href="#">Register</a>
@@ -64,7 +64,7 @@
                     busy reading for years to come.
                 </p>
                 <a th:href="@{/register/}" class="nav-link1">Register!</a>
-                <a th:href="@{/lenders/all}" href="#" class="nav-link1">View Lenders</a>
+                <a th:href="@{/templates/lenders/all}" href="#" class="nav-link1">View Lenders</a>
             </div>
         </div>
     </div>
@@ -79,7 +79,7 @@
                     fiction and romance. A book for every day
                 </p>
                 <a th:text="#{home.nav.mybooks}" href="#" class="nav-link1">My books</a>
-                <a  th:href="@{/books/addbook}" href="#" class="nav-link1">Add a Book</a>
+                <a th:href="@{/templates/books/addbook}" href="#" class="nav-link1">Add a Book</a>
             </div>
         </div>
     </div>

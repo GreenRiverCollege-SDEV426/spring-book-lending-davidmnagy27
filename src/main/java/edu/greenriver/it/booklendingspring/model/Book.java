@@ -49,7 +49,7 @@ public class Book {
         if (new ClassPathResource("/static" + location).isFile()) {
             return location;
         }
-        return "/books/" + isbn + "/image";
+        return "/templates/books/" + isbn + "/image";
     }
 
 
