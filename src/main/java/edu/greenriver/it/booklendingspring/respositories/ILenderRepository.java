@@ -11,6 +11,7 @@ package edu.greenriver.it.booklendingspring.respositories;
 
 import edu.greenriver.it.booklendingspring.model.Lender;
 import org.springframework.data.repository.CrudRepository;
+
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
@@ -21,8 +22,7 @@ import java.util.Optional;
  * @version 2.0
  */
 @Repository
-public interface ILenderRepository extends CrudRepository<Lender, Long>
-{
+public interface ILenderRepository extends CrudRepository<Lender, Long> {
 
 
     /**
@@ -30,4 +30,8 @@ public interface ILenderRepository extends CrudRepository<Lender, Long>
      * @return username
      */
     Optional<Lender> getLenderByUsername(String username);
+
+
 }
+
+

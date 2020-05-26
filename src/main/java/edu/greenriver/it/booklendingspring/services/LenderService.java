@@ -5,31 +5,33 @@
 
 package edu.greenriver.it.booklendingspring.services;
 
+
 import edu.greenriver.it.booklendingspring.model.Lender;
 import edu.greenriver.it.booklendingspring.respositories.ILenderRepository;
+
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 /**
  * @author davidnagy
  * @version 2.0
  */
 @Service
-public class LenderService
-{
+public class LenderService  {
  private ILenderRepository lenderRepository;
 
  /**
   * @param lenderRepository works with the business logic
   */
- public LenderService(ILenderRepository lenderRepository)
- {
-     this.lenderRepository = lenderRepository;
+ public LenderService(ILenderRepository lenderRepository) {
+  this.lenderRepository = lenderRepository;
  }
+
  /**
   * @return the lenders
   */
- public Iterable<Lender> getLenders()
- {
+ public Iterable<Lender> getLenders() {
   return lenderRepository.findAll();
  }
 
@@ -37,38 +39,59 @@ public class LenderService
   * @param username object of lenders
   * @return lenders
   */
-  public Lender getLender(String username)
-  {
+ public Lender getLender(String username) {
 
-   return lenderRepository
-           .getLenderByUsername(username)
-           .orElse(null);
-  }
+  return lenderRepository
+          .getLenderByUsername(username)
+          .orElse(null);
+ }
 
 
  /**
   * @param lender registering new user covifriming the password is the same.
   * @return saving lender to database
   */
-  public Lender registerUser(Lender lender)
-  {
+ public Lender registerUser(Lender lender) {
 
-   //if password match
-   if ( lender.getPassword().equals(lender.getPasswordConfirmed()))
-   {
-    return lenderRepository.save(lender);
-   }
-   else
-   {
-    return null;
-   }
+  //if password match
+  if (lender.getPassword().equals(lender.getPasswordConfirmed())) {
+   //encode the password
+//   lender.setPassword(new BCryptPasswordEncoder()
+//           .encode(lender.getPassword()));
+//
+//   //save the role of userfor a new account
+//
+//   Authority authority = Authority
+//           .builder()
+//           .authority("ROLE_USER")
+//           .lender(lender)
+//           .build();
+//   lender.getAuthorities().add(authority);
+//
+
+   //save and return
+   return lenderRepository.save(lender);
+  } else {
+   return null;
   }
+ }
 
  @Override
- public String toString()
- {
+ public String toString() {
   return "LenderService{" +
           "lenderRepository=" + lenderRepository +
           '}';
  }
+
+// @Override
+// public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//  //This matches are password using Spring Security
+//
+//  Optional<Lender> lender = lenderRepository.getLenderByUsername(username);
+//  if (lender.isPresent()) {
+//
+//   return null;
+//  }
+//return  null;
+//
 }

@@ -28,7 +28,7 @@ import java.io.InputStream;
  * @version 2.0
  */
 @Controller
-@RequestMapping("/templates/books")
+@RequestMapping("/books")
 public class BookController {
     private BookService service;
 
@@ -45,7 +45,7 @@ public class BookController {
      */
     @GetMapping("/all")
     public String allBooks(Model model) {
-        model.addAttribute("templates/books", service.getbook());
+        model.addAttribute("/books", service.getbook());
         return "all_books";
     }
 
@@ -54,10 +54,10 @@ public class BookController {
      * @param model title of model service
      * @return title of book
      */
-    @GetMapping("/isbn/{isbn}")
+    @GetMapping("/view/{isbn}")
     public String bookByIsbn(
             @PathVariable String isbn, Model model) {
-        model.addAttribute("isbn", service.getBook(isbn));
+        model.addAttribute("book", service.getBook(isbn));
         return "view_books";
     }
 

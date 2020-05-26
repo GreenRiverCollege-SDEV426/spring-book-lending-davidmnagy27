@@ -14,13 +14,13 @@
 
         <div class="">
             <ul class="list-group">
-                <h2 th:text="${isbn.getAuthor()}"></h2>
+                <h2 th:text="${book.getAuthor()}"></h2>
 
-                <li class="list-group-item"><strong>ID </strong>: <span th:text="${isbn.getId()}">1</span></li>
-                <li class="list-group-item"><strong>ISBN </strong>: <span th:text="${isbn.getIsbn()}"></span></li>
-                <li class="list-group-item"><strong>Author </strong>: <span th:text="${isbn.getAuthor()}"></span></li>
-                <li class="list-group-item"><strong>Pages </strong>: <span th:text="${isbn.getPages()}"></span></li>
-                <li class="list-group-item"><strong>Synopsis </strong>: <span th:text="${isbn.getSynopsis()}">
+                <li class="list-group-item"><strong>ID </strong>: <span th:text="${book.getId()}">1</span></li>
+                <li class="list-group-item"><strong>ISBN </strong>: <span th:text="${book.getIsbn()}"></span></li>
+                <li class="list-group-item"><strong>Author </strong>: <span th:text="${book.getAuthor()}"></span></li>
+                <li class="list-group-item"><strong>Pages </strong>: <span th:text="${book.getPages()}"></span></li>
+                <li class="list-group-item"><strong>Synopsis </strong>: <span th:text="${book.getSynopsis()}">
 
                 </span></li>
             </ul>
@@ -29,7 +29,7 @@
 
         <div class="column1">
 
-            <img th:src="${'/books/'+ book.isbn +'/image'}" alt="#" src="#"/>
+            <img th:src="@{${book.image}}" alt="#" src="#"/>
             
         </div>
     </div>
