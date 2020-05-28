@@ -7,6 +7,7 @@
 package edu.greenriver.it.booklendingspring.controllers;
 
 
+import edu.greenriver.it.booklendingspring.configuration.SecurityConfiguration;
 import edu.greenriver.it.booklendingspring.model.Lender;
 
 import edu.greenriver.it.booklendingspring.services.LenderService;
@@ -15,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author davidnagy
@@ -46,6 +48,30 @@ public class AuthenticationController
         return "/general/register";
     }
 
+    @GetMapping("/login")
+    public String login(
+            @RequestParam(required = false) String error,
+            @RequestParam(required = false) String logout, Model model)
+    {
+        if(error != null)
+        {
+            model.addAttribute("message","invalid credentials");
+        }
+        if(logout !=null)
+        {
+            model.addAttribute("message","user logged out");
+        }
+        return "/general/login";
+
+    }
+
+    @PostMapping("/login")
+    public String login(@ModelAttribute("lender") Lender lender) {
+        // LenderService(lender.getUsername(),lender.getPassword());
+        return "redirect:";
+    }
+
+
     /**
      * @param lender if the password doesnt match sends out an error
      * @param model attribute errors
@@ -65,9 +91,7 @@ public class AuthenticationController
 
 
 
-
     }
-
 
     @Override
     public String toString() {

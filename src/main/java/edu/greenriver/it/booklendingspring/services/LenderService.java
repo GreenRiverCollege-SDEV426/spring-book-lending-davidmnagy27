@@ -6,9 +6,15 @@
 package edu.greenriver.it.booklendingspring.services;
 
 
+import edu.greenriver.it.booklendingspring.model.Authority;
 import edu.greenriver.it.booklendingspring.model.Lender;
+import edu.greenriver.it.booklendingspring.model.UserDetailsAdapter;
 import edu.greenriver.it.booklendingspring.respositories.ILenderRepository;
 
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -18,7 +24,7 @@ import java.util.Optional;
  * @version 2.0
  */
 @Service
-public class LenderService  {
+public class LenderService implements UserDetailsService {
  private ILenderRepository lenderRepository;
 
  /**
@@ -56,18 +62,18 @@ public class LenderService  {
   //if password match
   if (lender.getPassword().equals(lender.getPasswordConfirmed())) {
    //encode the password
-//   lender.setPassword(new BCryptPasswordEncoder()
-//           .encode(lender.getPassword()));
-//
-//   //save the role of userfor a new account
-//
-//   Authority authority = Authority
-//           .builder()
-//           .authority("ROLE_USER")
-//           .lender(lender)
-//           .build();
-//   lender.getAuthorities().add(authority);
-//
+   lender.setPassword(new BCryptPasswordEncoder()
+           .encode(lender.getPassword()));
+
+
+   //save the role of userfor a new account
+
+   Authority authority = Authority
+           .builder()
+           .authority("ROLE_USER")
+           .lender(lender)
+           .build();
+   lender.getAuthorities().add(authority);
 
    //save and return
    return lenderRepository.save(lender);
@@ -83,15 +89,18 @@ public class LenderService  {
           '}';
  }
 
-// @Override
-// public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//  //This matches are password using Spring Security
-//
-//  Optional<Lender> lender = lenderRepository.getLenderByUsername(username);
-//  if (lender.isPresent()) {
-//
-//   return null;
-//  }
-//return  null;
-//
+
+ public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+  //This matches are password using Spring Security
+
+  Optional<Lender> lender = lenderRepository.getLenderByUsername(username);
+  if (lender.isPresent()) {
+
+   return new UserDetailsAdapter(lender.get());
+  }else
+
+  throw new UsernameNotFoundException("username of password is incorrect");
+
+ }
+
 }

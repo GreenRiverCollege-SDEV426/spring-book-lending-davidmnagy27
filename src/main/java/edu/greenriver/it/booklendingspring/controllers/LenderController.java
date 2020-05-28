@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @version 2.0
  */
 @Controller
-@RequestMapping("/templates/lenders")
+@RequestMapping("/lenders")
 public class LenderController {
     private LenderService service;
 
@@ -35,7 +35,7 @@ public class LenderController {
      */
     @GetMapping("/all")
     public String allLenders(Model model) {
-        model.addAttribute("templates/lenders", service.getLenders());
+        model.addAttribute("/lenders", service.getLenders());
 
         return "all_lenders";
     }

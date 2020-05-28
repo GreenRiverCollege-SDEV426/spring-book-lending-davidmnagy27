@@ -43,8 +43,13 @@ public class Lender
     @Lob
     private String bio;
 
-//    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "lender")
-//    private Collection<Authority> authorities= new HashSet<>();
-//
+
+
+    @OneToMany(fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL,
+            mappedBy = "lender")
+    private Collection<Authority> authorities= new HashSet<>();
+
+
 }
 
