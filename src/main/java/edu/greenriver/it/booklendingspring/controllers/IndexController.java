@@ -18,13 +18,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  */
 @Controller
-public class IndexController
+public class IndexController extends AuthenticationInformation
 {
     /**
      * @return index route
      *
      */
-    @RequestMapping("/")
+    @RequestMapping(path = {"","/","index","index.html"})
     public  String index()
     {
         return "index";

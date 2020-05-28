@@ -29,7 +29,7 @@ import java.io.InputStream;
  */
 @Controller
 @RequestMapping("/books")
-public class BookController {
+public class BookController extends AuthenticationInformation {
     private BookService service;
 
     /**

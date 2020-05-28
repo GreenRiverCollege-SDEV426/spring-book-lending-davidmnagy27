@@ -5,7 +5,7 @@
    -->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="fragments/header :: head">
     <meta charset="UTF-8">
     <link th:href="@{/css/styles.css}" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
@@ -14,44 +14,57 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
     <title th:text="#{home.logo}">Booking Lending Application</title>
+
+
 </head>
 <body>
-<div class="head-1">
-    <div class="jumbotron">
-        <h1 th:text="#{home.logo}">Booking Lending Application</h1>
-        <h5 th:text="#{home.logo.subtext}">A next generation book lending application that connects borrowers with the
-            stores they love.'"
-        </h5>
+<header th:replace="fragments/header :: top">
+    <div class="head-1">
+        <div class="jumbotron">
+            <h1 th:text="#{home.logo}">Booking Lending Application</h1>
+            <h5 th:text="#{home.logo.subtext}">A next generation book lending application that connects borrowers with the
+                stores they love.'"
+            </h5>
+        </div>
     </div>
-</div>
-<nav class="navbar-nav">
-    <ul class="navbar">
-        <li class="nav-item active">
-            <a th:text="#{home.nav.home}" class="nav-link" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-            <a th:text="#{home.nav.profile}" class="nav-link" href="#">Profile</a>
-        </li>
-        <li class="nav-item">
-            <a th:text="#{home.nav.viewlenders}" class="nav-link" href="#">View Lenders</a>
-        </li>
-        <li class="nav-item">
-            <a th:href="@{/templates/books/all}" class="nav-link" href="#">All Books</a>
-        </li>
-        <li class="nav-item">
-            <a th:text="#{home.nav.mybooks}" class="nav-link" href="#">My Books</a>
-        </li>
-        <li class="nav-item">
-            <a th:href="@{/books/addbook}" class="nav-link" href="#">Add a Book</a>
-        </li>
-        <li class="nav-item">
-            <a th:href="@{/register/}" class="nav-link" href="#">Register</a>
-        </li>
-        <li class="nav-item">
-            <a th:text="#{home.nav.login}" class="nav-link" href="#">Login</a>
-        </li>
-    </ul>
-</nav>
+
+
+    <nav class="navbar-nav">
+        <ul class="navbar">
+            <li class="nav-item active">
+                <a th:text="#{home.nav.home}" class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a th:text="#{home.nav.profile}" class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a th:text="#{home.nav.viewlenders}" class="nav-link" href="#">View Lenders</a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/templates/books/all}" class="nav-link" href="#">All Books</a>
+            </li>
+            <li class="nav-item">
+                <a th:text="#{home.nav.mybooks}" class="nav-link" href="#">My Books</a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/books/addbook}" class="nav-link" href="#">Add a Book</a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/register/}" class="nav-link" href="#">Register</a>
+            </li>
+            <li class="nav-item">
+                <a th:text="#{home.nav.login}" class="nav-link" href="#">Login</a>
+            </li>
+
+
+
+        </ul>
+
+
+    </nav>
+</header>
+
+
 <div class="card-deck">
     <div class="card">
         <div id="card">

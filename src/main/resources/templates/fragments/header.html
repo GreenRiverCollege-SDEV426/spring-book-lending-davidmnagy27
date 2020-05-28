@@ -20,7 +20,7 @@
 
 <body>
 
-<header th:fragment="top" th:remove="tag">
+<header th:fragment="top">
     <div class="head-1">
         <div class="jumbotron">
             <h1 th:text="#{home.logo}">Booking Lending Application</h1>
@@ -37,7 +37,7 @@
         <ul class="navbar">
 
             <li class="nav-item active">
-                <a th:text="#{home.nav.home}" class="nav-link" href="#">Home</a>
+                <a th:href="@{/index}" class="nav-link" >Home</a>
             </li>
 
             <li class="nav-item">
@@ -45,23 +45,33 @@
                 <a th:text="#{home.nav.profile}" class="nav-link" href="#">Profile</a>
             </li>
             <li class="nav-item">
-                <a th:text="#{home.nav.viewlenders}" class="nav-link" href="#">View Lenders</a>
+                <a th:text="#{home.nav.viewlenders}" class="nav-link" th:href="@{/lenders/all}">View Lenders</a>
             </li>
             <li class="nav-item">
-                <a th:text="#{home.nav.allbooks}" class="nav-link" href="#">All Books</a>
+                <a th:text="#{home.nav.allbooks}" class="nav-link" th:href="@{/books/all}">All Books</a>
             </li>
             <li class="nav-item">
                 <a th:text="#{home.nav.mybooks}" class="nav-link" href="#">My Books</a>
             </li>
             <li class="nav-item">
-                <a th:text="#{home.nav.addbook}" class="nav-link" href="#">Add a Book</a>
+                <a th:text="#{home.nav.addbook}" class="nav-link"th:href="@{/books/addbooks}">Add a Book</a>
             </li>
             <li class="nav-item">
-                <a th:text="#{home.nav.register}" class="nav-link" href="#">Register</a>
+                <a th:href="@{/register}" class="nav-link">Register</a>
             </li>
+
             <li class="nav-item">
-                <a th:text="#{home.nav.login}" class="nav-link" href="#">Login</a>
+
+            <form th:if="${validUserLoggedIn}"th:action="@{/logout}" method="post" id="logout-form">
+
+            <a href="#" class="nav-link logout"
+            onclick="document.getElementById('logout-form').submit();">Logout</a>
+            <span id="username" th:text="${'(' +loggedInUsername +')'}" ></span>
+            </form>
+            <a class="nav-link login" th:unless="${validUserLoggedIn}" th:href="@{/login}"
+            th:text="#{home.nav.login}">Log In</a>
             </li>
+
         </ul>
 
     </nav>

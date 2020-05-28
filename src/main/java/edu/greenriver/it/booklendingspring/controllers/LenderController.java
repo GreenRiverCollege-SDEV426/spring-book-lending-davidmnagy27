@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/lenders")
-public class LenderController {
+public class LenderController  extends AuthenticationInformation{
     private LenderService service;
 
     /**
@@ -35,7 +35,7 @@ public class LenderController {
      */
     @GetMapping("/all")
     public String allLenders(Model model) {
-        model.addAttribute("/lenders", service.getLenders());
+        model.addAttribute("lenders", service.getLenders());
 
         return "all_lenders";
     }

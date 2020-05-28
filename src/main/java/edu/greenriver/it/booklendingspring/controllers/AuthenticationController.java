@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * controls the LenderService layer
  */
 @Controller
-public class AuthenticationController
+public class AuthenticationController extends AuthenticationInformation
 {
     private LenderService service;
 
@@ -65,11 +65,7 @@ public class AuthenticationController
 
     }
 
-    @PostMapping("/login")
-    public String login(@ModelAttribute("lender") Lender lender) {
-        // LenderService(lender.getUsername(),lender.getPassword());
-        return "redirect:";
-    }
+
 
 
     /**

@@ -26,8 +26,8 @@ public class UserDetailsAdapter implements UserDetails
     }
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+    public Collection<Authority> getAuthorities() {
+        return lender.getAuthorities();
     }
 
 
