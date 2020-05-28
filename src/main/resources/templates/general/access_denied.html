@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+
+<body>
+
+<header th:replace="fragments/header :: top"></header>
+
+<div  class="alert alert-danger alert-dismissible" role="alert">
+    You are unauthorized to view this page!
+</div>
+</body>
+</html>

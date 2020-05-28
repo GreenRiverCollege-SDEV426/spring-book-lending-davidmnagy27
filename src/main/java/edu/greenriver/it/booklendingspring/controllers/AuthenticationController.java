@@ -65,6 +65,11 @@ public class AuthenticationController extends AuthenticationInformation
 
     }
 
+    @GetMapping("/access_denied")
+    public String denied()
+    {
+        return "/general/access_denied";
+    }
 
 
 
