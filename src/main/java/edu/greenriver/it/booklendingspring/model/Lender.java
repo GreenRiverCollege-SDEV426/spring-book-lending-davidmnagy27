@@ -11,8 +11,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 
 /**
  * @author davidnagy
@@ -49,6 +51,10 @@ public class Lender
             cascade = CascadeType.ALL,
             mappedBy = "lender")
     private Collection<Authority> authorities= new HashSet<>();
+
+    @OneToMany(cascade = CascadeType.ALL,
+    mappedBy = "owner")
+    private List<Book> books= new ArrayList<>();
 
 
 }

@@ -10,6 +10,7 @@ package edu.greenriver.it.booklendingspring.controllers;
 import edu.greenriver.it.booklendingspring.model.Book;
 
 import edu.greenriver.it.booklendingspring.services.BookService;
+import edu.greenriver.it.booklendingspring.services.LenderService;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 
 import org.springframework.stereotype.Controller;
@@ -31,13 +32,19 @@ import java.io.InputStream;
 @RequestMapping("/books")
 public class BookController extends AuthenticationInformation {
     private BookService service;
+    private LenderService lenderService;
+
+    public BookController(BookService service, LenderService lenderService) {
+        this.service = service;
+        this.lenderService = lenderService;
+    }
 
     /**
      * @param service Controls the service layer
      */
-    public BookController(BookService service) {
-        this.service = service;
-    }
+//    public BookController(BookService service) {
+//        this.service = service;
+//    }
 
     /**
      * @param model All book model controlling
@@ -113,7 +120,7 @@ public class BookController extends AuthenticationInformation {
         {
             // add book to the database
 
-            service.saveBook(book, file);
+            service.saveBook(book, book.getOwner(),file);
 
             service.addBook(book);
             return "redirect:/books/addbook";
@@ -123,6 +130,14 @@ public class BookController extends AuthenticationInformation {
             model.addAttribute("errors", "ISBN already in use!");
             return "addbook";
         }
+    }
+
+    @GetMapping("/mybook")
+    public String mybook(Model model)
+    {
+        model.addAttribute("books",
+                lenderService.getBooksbylender(lenderService.getLoggedInUser()));
+        return "/mybooks";
     }
 
 

@@ -52,5 +52,8 @@ public class Book {
         return "/templates/books/" + isbn + "/image";
     }
 
+    @ManyToOne
+    private Lender owner;
+
 
 }

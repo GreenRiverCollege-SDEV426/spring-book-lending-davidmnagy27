@@ -7,16 +7,21 @@ package edu.greenriver.it.booklendingspring.services;
 
 
 import edu.greenriver.it.booklendingspring.model.Authority;
+import edu.greenriver.it.booklendingspring.model.Book;
 import edu.greenriver.it.booklendingspring.model.Lender;
 import edu.greenriver.it.booklendingspring.model.UserDetailsAdapter;
+import edu.greenriver.it.booklendingspring.respositories.IBookRepository;
 import edu.greenriver.it.booklendingspring.respositories.ILenderRepository;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -26,12 +31,19 @@ import java.util.Optional;
 @Service
 public class LenderService implements UserDetailsService {
  private ILenderRepository lenderRepository;
+ private IBookRepository bookRepository;
 
  /**
   * @param lenderRepository works with the business logic
   */
- public LenderService(ILenderRepository lenderRepository) {
+// public LenderService(ILenderRepository lenderRepository) {
+//  this.lenderRepository = lenderRepository;
+// }
+
+
+ public LenderService(ILenderRepository lenderRepository, IBookRepository bookRepository) {
   this.lenderRepository = lenderRepository;
+  this.bookRepository = bookRepository;
  }
 
  /**
@@ -80,7 +92,30 @@ public class LenderService implements UserDetailsService {
   } else {
    return null;
   }
+
  }
+
+ public Lender getLoggedInUser ()
+ {
+  Authentication auth = SecurityContextHolder
+          .getContext()
+          .getAuthentication();
+
+
+  String username = auth.getName();
+  Lender loggedInUser = lenderRepository
+          .getLenderByUsername(username)
+          .orElse(null);
+
+  return loggedInUser;
+ }
+
+ public List<Book>getBooksbylender(Lender lender)
+ {
+  return  bookRepository.getAllByOwner(lender);
+
+ }
+
 
  @Override
  public String toString() {

@@ -1,0 +1,30 @@
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head ">
+    <meta charset="UTF-8">
+    <title>Book Lending Application</title>
+
+</head>
+<body>
+<header th:replace="fragments/header :: top">
+
+</header>
+<div class="flex-box2">
+    <div class="grid-container">
+        <div th:unless="${#arrays.isEmpty(books)}" class="flex-column" th:each="book : ${books}">
+            <div class="grid-item">
+                <img class="card-img-top" th:src="@{${book.image}}" alt="" src="">
+                <div class="card-body">
+                    <h4 th:text="${book.title}"></h4>
+                    <a th:href="@{'/books/view/' + ${book.isbn}}" href="#" class="nav-link1">View Book</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

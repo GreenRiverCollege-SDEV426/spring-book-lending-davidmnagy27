@@ -7,6 +7,7 @@ package edu.greenriver.it.booklendingspring.services;
 
 import edu.greenriver.it.booklendingspring.model.Book;
 
+import edu.greenriver.it.booklendingspring.model.Lender;
 import edu.greenriver.it.booklendingspring.respositories.IBookRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -81,11 +82,14 @@ public class BookService
      * @return saved book
      * @throws IOException returns true if booked saved
      */
-    public boolean saveBook(Book book, MultipartFile file)  throws IOException
+    public boolean saveBook(Book book, Lender loggedInUser, MultipartFile file)  throws IOException
     {
 
         if(getBook(book.getIsbn()) == null)
         {
+            book.setOwner(loggedInUser);
+            loggedInUser.getBooks().add(book);
+
          saveImageToBook(book, file);
          bookRepository.save(book);
          return true;
