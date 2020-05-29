@@ -55,5 +55,8 @@ public class Book {
     @ManyToOne
     private Lender owner;
 
+    @ManyToOne
+    private Lender borrower;
+
 
 }

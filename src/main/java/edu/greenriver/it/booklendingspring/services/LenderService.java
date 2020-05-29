@@ -118,6 +118,35 @@ public class LenderService implements UserDetailsService {
  }
 
 
+ public List<Book> getBooksToLoan(Lender lender)
+ {
+  return bookRepository.getAllByOwnerAndBorrowerIsNull(lender);
+ }
+
+ public List<Book> getLoanedBooks(Lender lender)
+ {
+  return bookRepository.getAllByOwnerAndAndBorrowerIsNotNull(lender);
+ }
+
+ public List<Book> getBorrowedBooks(Lender lender)
+ {
+  return bookRepository.getAllByBorrower( lender);
+ }
+
+
+ public void borrowBook(Lender lender,Book book)
+ {
+  if(book.getBorrower() == null)
+  {
+   lender.getBorrowedBooks().add(book);
+   book.setBorrower(lender);
+
+   lenderRepository.save(lender);
+   bookRepository.save(book);
+  }
+ }
+
+
  @Override
  public String toString() {
   return "LenderService{" +

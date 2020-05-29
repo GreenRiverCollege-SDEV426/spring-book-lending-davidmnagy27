@@ -31,9 +31,17 @@
             <ul class="list-group">
                 <h2>Books To Lend</h2>
 
-                <li class="list-group-item"><strong>Title</strong>: <span>Book #1 </span><a href="">View</a></li>
-                <li class="list-group-item"><strong>Title</strong>: <span>Book #2 </span><a href="">View</a></li>
-                <li class="list-group-item"><strong>Title</strong>: <span>Book #3 </span><a href="">View</a></li>
+                <li class="list-group-item" th:each="book : ${booksToLend}">
+                    <strong>Title</strong>: <span th:text="${book.title}" >Book #1 </span>
+                    <a th:href="@{'/books/view/' + ${book.isbn}}">View</a>
+                    <span th:if="${!loggedInUsername.equals(lender.username)}">
+                    <a th:href="@{'/books/borrow/' + ${book.isbn}}">borrow</a></span>
+                </li>
+
+
+
+
+
             </ul>
 
             <ul class="list-group">

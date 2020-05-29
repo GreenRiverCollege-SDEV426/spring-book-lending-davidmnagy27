@@ -9,6 +9,7 @@ package edu.greenriver.it.booklendingspring.controllers;
 
 import edu.greenriver.it.booklendingspring.model.Book;
 
+import edu.greenriver.it.booklendingspring.model.Lender;
 import edu.greenriver.it.booklendingspring.services.BookService;
 import edu.greenriver.it.booklendingspring.services.LenderService;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
@@ -37,6 +38,7 @@ public class BookController extends AuthenticationInformation {
     public BookController(BookService service, LenderService lenderService) {
         this.service = service;
         this.lenderService = lenderService;
+
     }
 
     /**
@@ -67,6 +69,24 @@ public class BookController extends AuthenticationInformation {
         model.addAttribute("book", service.getBook(isbn));
         return "view_books";
     }
+
+
+    @GetMapping("/borrow/{isbn}")
+
+        public String borrowBook(@PathVariable String isbn)
+    {
+        Lender loggedInUser = lenderService.getLoggedInUser();
+        Book book= service.getBook(isbn);
+
+        lenderService.borrowBook(loggedInUser,book);
+
+        return "redirect:/lenders/username/" +
+                book.getOwner().getUsername();
+
+
+
+    }
+
 
     /**
      * @param isbn adding a book image to the view book

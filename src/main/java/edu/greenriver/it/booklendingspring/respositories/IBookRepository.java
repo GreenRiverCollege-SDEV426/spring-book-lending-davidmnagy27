@@ -37,6 +37,12 @@ public interface IBookRepository extends CrudRepository<Book, Long>
 
         List<Book> getAllByOwner(Lender lender);
 
+        List<Book>getAllByOwnerAndBorrowerIsNull(Lender lender);
+
+        List<Book>getAllByOwnerAndAndBorrowerIsNotNull(Lender lender);
+
+        List<Book>getAllByBorrower(Lender lender);
+
 
 
 }

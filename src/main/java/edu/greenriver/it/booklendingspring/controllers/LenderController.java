@@ -6,6 +6,7 @@
 
 package edu.greenriver.it.booklendingspring.controllers;
 
+import edu.greenriver.it.booklendingspring.model.Lender;
 import edu.greenriver.it.booklendingspring.services.LenderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,7 +51,11 @@ public class LenderController  extends AuthenticationInformation{
     public String lenderByUsername(
             @PathVariable String username, Model model) {
 
+        Lender user = service.getLender(username);
+
         model.addAttribute("lender",service.getLender(username));
+        model.addAttribute("booksToLend", service.getBooksToLoan(user));
+
         return "view_username";
     }
 
