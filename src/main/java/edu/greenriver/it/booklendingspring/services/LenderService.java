@@ -13,6 +13,7 @@ import edu.greenriver.it.booklendingspring.model.UserDetailsAdapter;
 import edu.greenriver.it.booklendingspring.respositories.IBookRepository;
 import edu.greenriver.it.booklendingspring.respositories.ILenderRepository;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -29,6 +30,7 @@ import java.util.Optional;
  * @version 2.0
  */
 @Service
+@Primary
 public class LenderService implements UserDetailsService {
  private ILenderRepository lenderRepository;
  private IBookRepository bookRepository;
@@ -58,7 +60,6 @@ public class LenderService implements UserDetailsService {
   * @return lenders
   */
  public Lender getLender(String username) {
-
   return lenderRepository
           .getLenderByUsername(username)
           .orElse(null);
@@ -125,6 +126,7 @@ public class LenderService implements UserDetailsService {
  }
 
 
+ @Override
  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
   //This matches are password using Spring Security
 

@@ -52,7 +52,7 @@ public class BookController extends AuthenticationInformation {
      */
     @GetMapping("/all")
     public String allBooks(Model model) {
-        model.addAttribute("/books", service.getbook());
+        model.addAttribute("books", service.getbook());
         return "all_books";
     }
 

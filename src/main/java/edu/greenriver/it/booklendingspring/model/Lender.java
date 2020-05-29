@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.context.annotation.Primary;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -35,11 +36,8 @@ public class Lender
     private String password;
 
     @Transient
-
     private String passwordConfirmed;
-
     private String firstName;
-
     private String lastName;
 
     @Lob

@@ -3,14 +3,18 @@ package edu.greenriver.it.booklendingspring.model;
 import edu.greenriver.it.booklendingspring.model.Lender;
 import edu.greenriver.it.booklendingspring.respositories.ILenderRepository;
 import edu.greenriver.it.booklendingspring.services.LenderService;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Collection;
 
+@Component
+@NoArgsConstructor
 public class UserDetailsAdapter implements UserDetails
 {
     private Lender lender;
@@ -19,9 +23,6 @@ public class UserDetailsAdapter implements UserDetails
     public UserDetailsAdapter(Lender lender)
     {
         this.lender=lender;
-        lender.getUsername();
-        lender.getPassword();
-
 
     }
 
@@ -29,8 +30,6 @@ public class UserDetailsAdapter implements UserDetails
     public Collection<Authority> getAuthorities() {
         return lender.getAuthorities();
     }
-
-
 
     @Override
     public String getPassword() {
