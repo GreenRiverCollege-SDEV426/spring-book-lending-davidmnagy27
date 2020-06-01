@@ -24,17 +24,15 @@ import org.springframework.web.bind.annotation.RequestParam;
  * controls the LenderService layer
  */
 @Controller
-public class AuthenticationController extends AuthenticationInformation
-{
+public class AuthenticationController extends AuthenticationInformation {
     private LenderService service;
 
 
     /**
      * @param service the service layer for the register form
      */
-    public AuthenticationController(LenderService service)
-    {
-        this.service =service;
+    public AuthenticationController(LenderService service) {
+        this.service = service;
     }
 
     /**
@@ -42,8 +40,7 @@ public class AuthenticationController extends AuthenticationInformation
      * @return lender
      */
     @GetMapping("/register")
-    public String register(Model model)
-    {
+    public String register(Model model) {
         model.addAttribute("lender", new Lender());
         return "/general/register";
     }
@@ -51,19 +48,18 @@ public class AuthenticationController extends AuthenticationInformation
     @GetMapping("/login")
     public String login(
             @RequestParam(required = false) String error,
-            @RequestParam(required = false) String logout, Model model)
-    {
-        if(error != null)
-        {
-            model.addAttribute("message","invalid credentials");
+            @RequestParam(required = false) String logout, Model model) {
+        if (error != null) {
+            model.addAttribute("message", "invalid credentials");
         }
-        if(logout !=null)
-        {
-            model.addAttribute("message","user logged out");
+        if (logout != null) {
+            model.addAttribute("message", "user logged out");
         }
         return "/general/login";
 
     }
+
+
 
     @GetMapping("/access_denied")
     public String denied()

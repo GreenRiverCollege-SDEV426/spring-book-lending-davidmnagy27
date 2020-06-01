@@ -50,11 +50,13 @@ public class LenderController  extends AuthenticationInformation{
     @GetMapping("/username/{username}")
     public String lenderByUsername(
             @PathVariable String username, Model model) {
-
         Lender user = service.getLender(username);
 
         model.addAttribute("lender",service.getLender(username));
         model.addAttribute("booksToLend", service.getBooksToLoan(user));
+        model.addAttribute("loanedBook", service.getLoanedBooks(user));
+        model.addAttribute("borrowedBook", service.getBorrowedBooks(user));
+
 
         return "view_username";
     }

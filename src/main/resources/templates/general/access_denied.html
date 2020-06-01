@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="head">
+<head th:replace="fragments/header :: head ">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Book Lending Application</title>
 
 </head>
-
 <body>
+<header th:replace="fragments/header :: top">
 
-<header th:replace="fragments/header :: top"></header>
+</header>
 
 <div class="alert alert-danger alert-dismissible" role="alert">
     You are unauthorized to view this page!

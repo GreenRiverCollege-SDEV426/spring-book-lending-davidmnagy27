@@ -5,28 +5,28 @@ import edu.greenriver.it.booklendingspring.model.Lender;
 import edu.greenriver.it.booklendingspring.respositories.ILenderRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.HashSet;
 
+@Component
 public class AdminSetup implements CommandLineRunner
 {
     private ILenderRepository lenderRepository;
 
     public AdminSetup(ILenderRepository lenderRepository)
-
     {
-        this.lenderRepository=lenderRepository;
+        this.lenderRepository = lenderRepository;
 
-}
-
+    }
 
     @Override
     public void run(String... args) throws Exception
     {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-        Lender admin= Lender.builder()
+        Lender admin = Lender.builder()
                 .username("admin")
                 .password(encoder.encode("password"))
                 .authorities(new HashSet<>())
