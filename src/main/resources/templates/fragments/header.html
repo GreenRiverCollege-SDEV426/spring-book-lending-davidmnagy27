@@ -42,7 +42,7 @@
 
             <li class="nav-item">
 
-                <a th:text="#{home.nav.profile}" class="nav-link" href="#">Profile</a>
+                <a th:href="@{'/lenders/username/'+ ${loggedInUsername}}" class="nav-link" href="#">Profile</a>
             </li>
             <li class="nav-item">
                 <a th:text="#{home.nav.viewlenders}" class="nav-link" th:href="@{/lenders/all}">View Lenders</a>
@@ -51,7 +51,7 @@
                 <a th:text="#{home.nav.allbooks}" class="nav-link" th:href="@{/books/all}">All Books</a>
             </li>
             <li class="nav-item">
-                <a th:text="#{home.nav.mybooks}" class="nav-link" href="#">My Books</a>
+                <a th:href="@{'/books/mybook'}" class="nav-link" href="#">My Books</a>
             </li>
             <li class="nav-item">
                 <a th:href="@{/books/addbook}" href="#" class="nav-link">Add a Book</a>

@@ -91,7 +91,7 @@
                     You'll find a title in any genre you like, including mysteries, science
                     fiction and romance. A book for every day
                 </p>
-                <a th:text="#{home.nav.mybooks}" href="#" class="nav-link1">My books</a>
+                <a th:href="@{'/books/mybook'}" href="#" class="nav-link1">My books</a>
                 <a th:href="@{/books/addbook}" href="#" class="nav-link1">Add a Book</a>
             </div>
         </div>
@@ -106,8 +106,8 @@
                     are expected to take care of any borrowed materials and to return them in a
                     timely manner.
                 </p>
-                <a th:text="#{home.nav.borrowbook}" href="#" class="nav-link1">Borrow a book!</a>
-                <a  th:text="#{home.nav.returnbook}" href="#" class="nav-link1">Return a book</a>
+                <a th:href="@{'/lenders/all'}" href="#" class="nav-link1">Borrow a book!</a>
+                <a th:href="@{'/lenders/username/'+ ${loggedInUsername}}"  class="nav-link1">Return a book</a>
             </div>
         </div>
     </div>
