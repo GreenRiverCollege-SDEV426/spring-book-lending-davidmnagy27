@@ -87,6 +87,18 @@ public class BookController extends AuthenticationInformation {
 
     }
 
+    @GetMapping("/return/{isbn}")
+
+    public String returnBooks(@PathVariable String isbn)
+    {
+        Lender loggedInUser = lenderService.getLoggedInUser();
+        Book book = service.getBook(isbn);
+        lenderService.returnBooks(loggedInUser,book);
+
+        return "redirect:/lenders/username/" + loggedInUser.getUsername();
+
+    }
+
 
     /**
      * @param isbn adding a book image to the view book

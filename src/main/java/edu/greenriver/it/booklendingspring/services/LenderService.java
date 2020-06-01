@@ -133,7 +133,6 @@ public class LenderService implements UserDetailsService {
   return bookRepository.getAllByBorrower( lender);
  }
 
-
  public void borrowBook(Lender lender,Book book)
  {
   if(book.getBorrower() == null)
@@ -144,6 +143,17 @@ public class LenderService implements UserDetailsService {
    lenderRepository.save(lender);
    bookRepository.save(book);
   }
+ }
+
+ public void returnBooks( Lender lender, Book book)
+ {
+  if(book.getBorrower().equals(lender))
+  {
+   lender.getBorrowedBooks().remove(book);
+   book.setBorrower(null);
+  }
+  lenderRepository.save(lender);
+  bookRepository.save(book);
  }
 
 

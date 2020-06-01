@@ -66,7 +66,7 @@
                 <li th:each="book : ${borrowedBook}" class="list-group-item"><strong>Title</strong>: <span th:text="${book.title}">Book #1 </span>
 
                     <a th:href="@{'/books/view/'+ ${book.isbn}}">View</a>
-                    <a href="#">Return</a>
+                    <a th:href="@{'/books/return/'+${book.isbn}}">Return</ath>
                 </li>
 
                 <li th:if="${borrowedBook.isEmpty()}"class="list-group-item">
