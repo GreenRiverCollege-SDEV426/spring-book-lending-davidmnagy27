@@ -1,18 +1,20 @@
+//David Nagy
+//6/1/2020
+//userDetailsAdapter.java
+// Using the Adapter pattern to get user details
+
 package edu.greenriver.it.booklendingspring.model;
 
-import edu.greenriver.it.booklendingspring.model.Lender;
-import edu.greenriver.it.booklendingspring.respositories.ILenderRepository;
-import edu.greenriver.it.booklendingspring.services.LenderService;
+
 import lombok.NoArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.util.Collection;
 
+/**
+ * @author davidnagy
+ * @version 5.0
+ */
 @Component
 @NoArgsConstructor
 public class UserDetailsAdapter implements UserDetails
@@ -20,6 +22,9 @@ public class UserDetailsAdapter implements UserDetails
     private Lender lender;
 
 
+    /**
+     * @param lender lender user details
+     */
     public UserDetailsAdapter(Lender lender)
     {
         this.lender=lender;
@@ -27,37 +32,51 @@ public class UserDetailsAdapter implements UserDetails
     }
 
     @Override
-    public Collection<Authority> getAuthorities() {
+    public Collection<Authority> getAuthorities()
+    {
         return lender.getAuthorities();
     }
 
     @Override
-    public String getPassword() {
+    public String getPassword()
+    {
         return lender.getPassword();
     }
 
     @Override
-    public String getUsername() {
+    public String getUsername()
+    {
         return lender.getUsername();
     }
 
     @Override
-    public boolean isAccountNonExpired() {
+    public boolean isAccountNonExpired()
+    {
         return true;
     }
 
     @Override
-    public boolean isAccountNonLocked() {
+    public boolean isAccountNonLocked()
+    {
         return true;
     }
 
     @Override
-    public boolean isCredentialsNonExpired() {
+    public boolean isCredentialsNonExpired()
+    {
         return true;
     }
 
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "UserDetailsAdapter{" +
+                "lender=" + lender +
+                '}';
     }
 }

@@ -79,7 +79,7 @@ public class LenderService implements UserDetailsService {
            .encode(lender.getPassword()));
 
 
-   //save the role of userfor a new account
+ //  save the role of userfor a new account
 
    Authority authority = Authority
            .builder()

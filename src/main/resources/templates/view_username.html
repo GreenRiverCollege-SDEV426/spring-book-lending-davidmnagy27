@@ -10,8 +10,7 @@
 
 </head>
 <body>
-    <header th:replace="fragments/header :: top">
-    </header>
+    <header th:replace="fragments/header :: top"></header>
 
     <div class="flex-box">
         <div class="flex-box-item">
@@ -38,16 +37,13 @@
                     <a th:href="@{'/books/borrow/' + ${book.isbn}}">borrow</a></span>
                 </li>
 
-
-
-
-
             </ul>
 
             <ul class="list-group">
                 <h2>Loaned Books</h2>
 
-                <li th:each="book : ${loanedBook}" class="list-group-item"><strong>Title</strong>: <span th:text="${book.title}">Book #1 </span>
+                <li th:each="book : ${loanedBook}" class="list-group-item"><strong>Title</strong>:
+                    <span th:text="${book.title}">Book #1 </span>
                     <p>
                         (<a th:href="@{'/lenders/username/' + ${book.borrower.getUsername()}}"
                             th:text="${book.borrower.getUsername()}"></a>)
@@ -63,13 +59,14 @@
             <ul class="list-group">
                 <h2>Borrowed Books</h2>
 
-                <li th:each="book : ${borrowedBook}" class="list-group-item"><strong>Title</strong>: <span th:text="${book.title}">Book #1 </span>
+                <li th:each="book : ${borrowedBook}" class="list-group-item"><strong>Title</strong>:
+                    <span th:text="${book.title}">Book #1 </span>
 
                     <a th:href="@{'/books/view/'+ ${book.isbn}}">View</a>
                     <a th:href="@{'/books/return/'+${book.isbn}}">Return</a>
                 </li>
 
-                <li th:if="${borrowedBook.isEmpty()}"class="list-group-item">
+                <li th:if="${borrowedBook.isEmpty()}" class="list-group-item">
                 View Books that you can borrow
                     <a th:href="@{/lenders/all}">here</a>
 

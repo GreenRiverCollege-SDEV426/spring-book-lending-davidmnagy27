@@ -8,9 +8,7 @@
 
 </head>
 <body>
-<header th:replace="fragments/header :: top">
-
-</header>
+<header th:replace="fragments/header :: top"></header>
    <div class="flex-box2">
       <div class="grid-container">
          <div th:unless="${#arrays.isEmpty(books)}" class="flex-column" th:each="book : ${books}">

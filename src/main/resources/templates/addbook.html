@@ -8,11 +8,11 @@
 <header th:replace="fragments/header :: top">
 </header>
 <div class="cover">
-    <div th:text="${errors}" class="alert alert-danger" role="alert">
-    </div>
     <div class="flex-box">
         <form th:object="${book}" th:action="@{/books/addbook}" method="post"
               enctype="multipart/form-data">
+            <div th:if="${errors != null}" th:text="${errors}" class="alert alert-danger" role="alert"></div>
+
             <input type="hidden" th:field="*{id}">
             <div class="form-group">
                 <label for="isbn">ISBN</label>

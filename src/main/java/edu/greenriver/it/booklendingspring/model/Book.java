@@ -23,7 +23,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Book {
+public class Book
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -46,7 +47,8 @@ public class Book {
     {
         String location = "/images/covers/" + title + ".jpg";
 
-        if (new ClassPathResource("/static" + location).isFile()) {
+        if (new ClassPathResource("/static" + location).isFile())
+        {
             return location;
         }
         return "/templates/books/" + isbn + "/image";

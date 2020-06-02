@@ -31,20 +31,23 @@ import java.io.InputStream;
  */
 @Controller
 @RequestMapping("/books")
-public class BookController extends AuthenticationInformation {
+public class BookController extends AuthenticationInformation
+{
     private BookService service;
     private LenderService lenderService;
 
-    public BookController(BookService service, LenderService lenderService) {
+    /**
+     * @param service Adding a book service
+     * @param lenderService adding a lender service.
+     */
+    public BookController(BookService service, LenderService lenderService)
+    {
         this.service = service;
         this.lenderService = lenderService;
 
     }
 
-    /**
-     * @param service Controls the service layer
-     */
-//    public BookController(BookService service) {
+    //    public BookController(BookService service) {
 //        this.service = service;
 //    }
 
@@ -57,7 +60,6 @@ public class BookController extends AuthenticationInformation {
         model.addAttribute("books", service.getbook());
         return "all_books";
     }
-
     /**
      * @param isbn  Title of book
      * @param model title of model service
@@ -65,12 +67,17 @@ public class BookController extends AuthenticationInformation {
      */
     @GetMapping("/view/{isbn}")
     public String bookByIsbn(
-            @PathVariable String isbn, Model model) {
+            @PathVariable String isbn, Model model)
+    {
         model.addAttribute("book", service.getBook(isbn));
         return "view_books";
     }
 
 
+    /**
+     * @param isbn Adding a book to let other users borrow a book
+     * @return borrowing a book
+     */
     @GetMapping("/borrow/{isbn}")
 
         public String borrowBook(@PathVariable String isbn)
@@ -87,6 +94,10 @@ public class BookController extends AuthenticationInformation {
 
     }
 
+    /**
+     * @param isbn return book feature
+     * @return book
+     */
     @GetMapping("/return/{isbn}")
 
     public String returnBooks(@PathVariable String isbn)
@@ -148,13 +159,11 @@ public class BookController extends AuthenticationInformation {
                           @RequestParam("cover-image") MultipartFile file,
                           Model model) throws IOException {
 
-        if (service.checkisbn(book.getIsbn()))
+        boolean checkSaveBook = service.saveBook(book,lenderService.getLoggedInUser(), file);
+
+        if (checkSaveBook)
         {
             // add book to the database
-
-            service.saveBook(book, book.getOwner(),file);
-
-            service.addBook(book);
             return "redirect:/books/addbook";
         }
         else
@@ -164,6 +173,10 @@ public class BookController extends AuthenticationInformation {
         }
     }
 
+    /**
+     * @param model books that user owns.
+     * @return my book feature
+     */
     @GetMapping("/mybook")
     public String mybook(Model model)
     {

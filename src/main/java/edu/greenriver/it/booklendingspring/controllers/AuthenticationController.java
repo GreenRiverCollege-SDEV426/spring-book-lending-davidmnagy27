@@ -7,7 +7,6 @@
 package edu.greenriver.it.booklendingspring.controllers;
 
 
-import edu.greenriver.it.booklendingspring.configuration.SecurityConfiguration;
 import edu.greenriver.it.booklendingspring.model.Lender;
 
 import edu.greenriver.it.booklendingspring.services.LenderService;
@@ -24,14 +23,15 @@ import org.springframework.web.bind.annotation.RequestParam;
  * controls the LenderService layer
  */
 @Controller
-public class AuthenticationController extends AuthenticationInformation {
+public class AuthenticationController extends AuthenticationInformation
+{
     private LenderService service;
-
 
     /**
      * @param service the service layer for the register form
      */
-    public AuthenticationController(LenderService service) {
+    public AuthenticationController(LenderService service)
+    {
         this.service = service;
     }
 
@@ -40,34 +40,42 @@ public class AuthenticationController extends AuthenticationInformation {
      * @return lender
      */
     @GetMapping("/register")
-    public String register(Model model) {
+    public String register(Model model)
+    {
         model.addAttribute("lender", new Lender());
         return "/general/register";
     }
 
+    /**
+     * @param error Adding an Error route for Internal server error
+     * @param logout adding a Log out feature for when logging out.
+     * @param model adding a model for login in.
+     * @return register mapping
+     */
     @GetMapping("/login")
     public String login(
             @RequestParam(required = false) String error,
-            @RequestParam(required = false) String logout, Model model) {
-        if (error != null) {
+            @RequestParam(required = false) String logout, Model model)
+    {
+        if (error != null)
+        {
             model.addAttribute("message", "invalid credentials");
         }
-        if (logout != null) {
+        if (logout != null)
+        {
             model.addAttribute("message", "user logged out");
         }
         return "/general/login";
 
     }
-
-
-
+    /**
+     * @return access denied feature for link your not able to access too.
+     */
     @GetMapping("/access_denied")
     public String denied()
     {
         return "/general/access_denied";
     }
-
-
 
     /**
      * @param lender if the password doesnt match sends out an error
@@ -79,19 +87,20 @@ public class AuthenticationController extends AuthenticationInformation {
                            Model model)
     {
         lender = service.registerUser(lender);
-        if (lender != null) {
+
+        if (lender != null)
+        {
             return "redirect:";
         } else {
             model.addAttribute("errors", "Password does not match!");
             return "/general/register";
         }
 
-
-
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "AuthenticationController{" +
                 "service=" + service +
                 '}';

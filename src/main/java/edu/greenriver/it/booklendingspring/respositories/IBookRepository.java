@@ -35,12 +35,28 @@ public interface IBookRepository extends CrudRepository<Book, Long>
          */
         Optional<Book> getBookByIsbn(String isbn);
 
+        /**
+         * @param lender get All by owner in database
+         * @return lender
+         */
         List<Book> getAllByOwner(Lender lender);
 
+        /**
+         * @param lender get all by owner and borrower
+         * @return borrower
+         */
         List<Book>getAllByOwnerAndBorrowerIsNull(Lender lender);
 
+        /**
+         * @param lender get all by owner is not null
+         * @return owner
+         */
         List<Book>getAllByOwnerAndAndBorrowerIsNotNull(Lender lender);
 
+        /**
+         * @param lender get all by borrower
+         * @return lender
+         */
         List<Book>getAllByBorrower(Lender lender);
 
 

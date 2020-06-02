@@ -1,3 +1,8 @@
+//David Nagy
+//6/1/2020
+//adminSetup.java
+//Connecting to admim
+
 package edu.greenriver.it.booklendingspring.configuration;
 
 import edu.greenriver.it.booklendingspring.model.Authority;
@@ -10,11 +15,19 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 import java.util.HashSet;
 
+/**
+ * @author davidnagy
+ * @version 5.0
+ *
+ */
 @Component
 public class AdminSetup implements CommandLineRunner
 {
     private ILenderRepository lenderRepository;
 
+    /**
+     * @param lenderRepository sending the admin to the database.
+     */
     public AdminSetup(ILenderRepository lenderRepository)
     {
         this.lenderRepository = lenderRepository;
@@ -22,7 +35,7 @@ public class AdminSetup implements CommandLineRunner
     }
 
     @Override
-    public void run(String... args) throws Exception
+    public void run(String... args)
     {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
@@ -46,5 +59,12 @@ public class AdminSetup implements CommandLineRunner
 
                 lenderRepository.save(admin);
 
+    }
+
+    @Override
+    public String toString() {
+        return "AdminSetup{" +
+                "lenderRepository=" + lenderRepository +
+                '}';
     }
 }
