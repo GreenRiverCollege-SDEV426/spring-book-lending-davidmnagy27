@@ -7,9 +7,19 @@
 <body>
 <header th:replace="fragments/header :: top"></header>
 
-<h1 th:text="${message}"></h1>
+<div id="error12">
 
-<h2 th:text="${reason}"></h2>
+<div class="center">
+
+    <img  style="width:600px;height:500px;" class="rounded" th:src="@{/images/cat.jpg}" alt="">
+    <h2 th:text="${message}"></h2>
+
+    <div id="pgf">
+    <h2 th:text="${reason}"></h2>
+    </div>
+
+</div>
+</div>
 
 </body>
 </html>

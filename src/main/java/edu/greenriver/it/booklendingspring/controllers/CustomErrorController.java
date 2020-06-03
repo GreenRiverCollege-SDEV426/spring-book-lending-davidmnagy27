@@ -31,7 +31,7 @@ public class CustomErrorController extends AuthenticationInformation implements 
   @RequestMapping("/error")
   public String errorHandler(HttpServletRequest request, Model model)
   {
-      String message = "Opps! Something went wrong! We'll get one  of our furry friends on this right away.";
+      String message = "Opps! Something went wrong!  We'll get one of our furry friends on this right away.";
       String reason = "Unkown";
 
       int status= (Integer) request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
