@@ -54,24 +54,24 @@ public class BookService
                 .orElse(null);
     }
 
-//    /**
-//     * @param isbn Checking ISBN and and get lender by ISBN
-//     * @return book by isbn
-//     */
-//    public boolean checkisbn(String isbn)
-//    {
-//        bookRepository.getBookByIsbn(isbn);
-//        bookRepository.getLenderByisbn(isbn);
-//
-//       return bookRepository.getBookByIsbn(isbn).isEmpty();
-//    }
+    /**
+     * @param isbn Checking ISBN and and get lender by ISBN
+     * @return book by isbn
+     */
+    public boolean checkisbn(String isbn)
+    {
+        bookRepository.getBookByIsbn(isbn);
+        bookRepository.getLenderByisbn(isbn);
+
+       return bookRepository.getBookByIsbn(isbn).isEmpty();
+    }
 
     // adds a book to the database
-//   public void addBook(Book book)
-//    {
-//        bookRepository.save(book);
-//    }
-//
+   public void addBook(Book book)
+    {
+        bookRepository.save(book);
+    }
+
 
     /**
      * @param book saving book into database

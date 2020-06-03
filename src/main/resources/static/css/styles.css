@@ -206,7 +206,10 @@ margin-left: 20px;
    text-align: center;
 
 }
-
+.center1 {
+    margin: auto;
+    width: 80%
+}
 
 
 
