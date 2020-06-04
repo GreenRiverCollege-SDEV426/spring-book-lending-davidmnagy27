@@ -66,6 +66,9 @@ public class BookService
        return bookRepository.getBookByIsbn(isbn).isEmpty();
     }
 
+    /**
+     * @param book adding book into the database
+     */
     // adds a book to the database
    public void addBook(Book book)
     {
@@ -75,7 +78,6 @@ public class BookService
 
     /**
      * @param book saving book into database
-     * @param loggedInUser login in user
      * @param file save book using multipartfile
      * @return saved book
      * @throws IOException returns true if booked saved
@@ -103,7 +105,7 @@ public class BookService
 
        for (int i = 0; i < fileBytes.length; i++)
        {
-           bytes[i] = fileBytes[i];
+           bytes[i] = new Byte(fileBytes[i]);
 
         }
        book.setCoverImage(bytes);
